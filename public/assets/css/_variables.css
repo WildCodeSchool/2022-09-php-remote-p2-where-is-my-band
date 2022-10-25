@@ -1,26 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Roboto:wght@100&display=swap');
 
 :root {
---background-color-richblack: #0b090a;
---background-color-eerieblack: #161a1d;
---background-color-bloodred: #660708;
---background-color-rubyred: #a4161a;
---background-color-carnelian: #ba181b;
---background-color-imperialred: #e5383b;
---background-color-blackshadows: #baa7a6;
---background-color-lightgray: #d3d3d3;
---background-color-cultured: #f5f3f4;
+    --background-color-richblack: #0b090a;
+    --background-color-eerieblack: #161a1d;
+    --background-color-bloodred: #660708;
+    --background-color-rubyred: #a4161a;
+    --background-color-carnelian: #ba181b;
+    --background-color-imperialred: #e5383b;
+    --background-color-blackshadows: #baa7a6;
+    --background-color-lightgray: #d3d3d3;
+    --background-color-cultured: #f5f3f4;
 
---color-richblack: #0b090a;
---color-eerieblack: #161a1d;
---color-bloodred: #660708;
---color-rubyred: #a4161a;
---color-carnelian: #ba181b;
---color-imperialred: #e5383b;
---color-blackshadows: #baa7a6;
---color-lightgray: #d3d3d3;
---color-cultured: #f5f3f4;
+    --color-richblack: #0b090a;
+    --color-eerieblack: #161a1d;
+    --color-bloodred: #660708;
+    --color-rubyred: #a4161a;
+    --color-carnelian: #ba181b;
+    --color-imperialred: #e5383b;
+    --color-blackshadows: #baa7a6;
+    --color-lightgray: #d3d3d3;
+    --color-cultured: #f5f3f4;
 
 
-    
+
 }
