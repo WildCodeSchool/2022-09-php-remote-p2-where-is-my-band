@@ -1,3 +1,3 @@
-body {
-    color: #f76c6c;
-}
+@import url(_global.css);
+@import url(_variables.css);
+@import url(admin_createband.css);
