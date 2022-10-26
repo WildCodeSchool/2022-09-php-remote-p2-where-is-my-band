@@ -1,3 +1,5 @@
-body {
-    color: #f76c6c;
-}
+/* CSS file import */
+@import url(_global.css);
+@import url(_variables.css);
+@import url(_navbar.css);
+@import url(_footer.css);
