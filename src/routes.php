@@ -15,4 +15,5 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'aboutus' => ['HomeController', 'aboutus',],
     'contact' => ['HomeController', 'contact'],
+    'validation' => ['HomeController', 'validation'],
 ];

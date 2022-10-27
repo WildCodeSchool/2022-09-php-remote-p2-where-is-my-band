@@ -21,4 +21,9 @@ class HomeController extends AbstractController
     {
         return $this->twig->render('Home/contact.html.twig');
     }
+
+    public function validation(): string
+    {
+        return $this->twig->render('Home/validation.html.twig');
+    }
 }
