@@ -13,5 +13,6 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
-    'aboutus' => ['HomeController', 'aboutus',]
+    'aboutus' => ['HomeController', 'aboutus',],
+    'contact' => ['HomeController', 'contact'],
 ];

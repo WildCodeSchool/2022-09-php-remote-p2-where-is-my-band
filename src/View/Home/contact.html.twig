@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<h2>Contactez-nous !</h2>
+
+	<section class="container align-content-center">
+
+		<h4>Si vous souhaitez inscrire votre groupe sur notre site, merci de nous communiquer :</h4>
+		<ul>
+			<li>le nom du groupe</li>
+			<li>sa localisation</li>
+			<li>son style</li>
+			<li>ses membres et leur/s instrument/s</li>
+		</ul>
+		<p>Pour toute autre demande, n'hésitez pas à nous envoyer un message ! ;)</p>
+
+
+		<img src="./assets/images/vu-meter.png" class="d-block mx-auto" alt="vu-meter">
+
+		<div class="container text-center shadow p-3 mb-5 bg-body rounded" action="/validation.php" method="POST">
+			<div class="mb-3">
+				<label for="lastname" class="form-label">Nom</label>
+				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="lastname" placeholder="Cobain" arial-label="nom" required>
+			</div>
+			<div class="mb-3">
+				<label for="firstname" class="form-label">Prénom</label>
+				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="firstname" placeholder="Kurt" arial-label="prenom" required>
+			</div>
+			<div class="mb-3">
+				<label for="email" class="form-label">E-mail</label>
+				<input type="email" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="email" placeholder="nirvana@grunge.com" arial-label="email" required>
+			</div>
+			<div class="mb-3">
+				<label for="phone" class="form-label">Téléphone</label>
+				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="phone" placeholder="06 66 09 28 10" arial-label="email" required>
+			</div>
+			<div class="mb-3">
+				<label for="message" class="form-label">Votre message</label>
+				<textarea class="form-control shadow-sm p-3 mb-5 bg-body rounded" id="message" rows="3" placeholder="I'm so happy 'cause today I've found my friends... They're in my head. ♫" arial-label="message" required></textarea>
+			</div>
+			<div class="col-auto">
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+			</div>
+		</div>
+
+	</section>
+
+{% endblock %}
