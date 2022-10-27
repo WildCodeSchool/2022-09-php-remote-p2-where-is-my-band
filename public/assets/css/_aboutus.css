@@ -7,6 +7,7 @@
     text-align: center;
 }
 
+/* Changement de disposition sur version desktop */
 @media screen and (min-width: 700px) {
     .aboutUs {
         display: flex;
@@ -36,4 +37,10 @@
 
 .aboutUs button {
     box-shadow: black 5px 5px 10px;
+}
+
+.silouhette {
+    justify-content: center;
+    max-width: 20vh;
+    min-width: 24%;
 }
