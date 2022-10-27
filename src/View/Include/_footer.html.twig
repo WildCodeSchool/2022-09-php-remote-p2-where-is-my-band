@@ -1,7 +1,13 @@
-<footer class="footer">
-	<div class="container-fluid">
-		<p>© PHPower - 2022 | Tous droits réservés -
-			<a href="#">Mentions Légales</a>
-		</p>
-	</div>
-</footer>
+{% block footer %}
+
+	<footer class="footer">
+		<div class="container-fluid">
+			<p>© PHPower - 2022 | Tous droits réservés -
+				<a href="{{ 'mentions' }}">Mentions Légales</a>
+				<a href="#" class="btn-footer top transition-03s">
+					<i class="bi bi-arrow-up-circle"></i>
+				</a>
+			</p>
+		</div>
+	</footer>
+{% endblock %}

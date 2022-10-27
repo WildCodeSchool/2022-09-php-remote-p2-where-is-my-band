@@ -18,9 +18,41 @@
 }
 .navbar-item img {
     margin-left: 12vw;
-    max-height: 8rem;
+    max-height: 3.7rem;
 
 }
 .navbar-brand {
     padding: 0%;
+}
+
+.navbar-brand a {
+    text-decoration: none;
+    display: inline-flex;
+    margin-top: 0.5rem;
+}
+.navbar-brand h2 {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    color: var(--color-lightgray);
+}
+@media screen and (max-width: 992px) {
+    .navbar-brand a {
+        text-decoration: none;
+        display: inline-flex;
+        margin-top: 0.1rem;
+    }
+    .navbar {
+        padding: 0%;
+    }
+    .navbar-item {
+        margin-top: 0px;
+    }
+}
+@media screen and (max-width: 431px) {
+    .navbar-item img {
+        margin-left: 0rem;
+    }
+    .navbar-brand {
+        max-width: 5rem;
+    }
 }
