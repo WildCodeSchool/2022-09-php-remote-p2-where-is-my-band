@@ -1,0 +1,70 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<div class="pageResults">
+
+		<div class="formAndimage">
+			<form class="formSearch form-index" action="">
+				<select class="selectSearch form-select p-3 mb-3" aria-label="instrument">
+					<option class="optionSearch" selected>Instrument joué</option>
+					<option class="optionSearch" value="1">One</option>
+					<option class="optionSearch" value="2">Two</option>
+					<option class="optionSearch" value="3">Three</option>
+				</select>
+				<select class="selectSearch form-select p-3 mb-3" aria-label="level">
+					<option class="optionSearch" selected>Niveau</option>
+					<option class="optionSearch" value="1">initié</option>
+					<option class="optionSearch" value="2">débutant</option>
+					<option class="optionSearch" value="3">semi-professionnel</option>
+					<option class="optionSearch" value="4">professionnel</option>
+				</select>
+				<select class="selectSearch form-select p-3 mb-3" aria-label="style">
+					<option class="optionSearch" selected>Style</option>
+					<option class="optionSearch" value="1">One</option>
+					<option class="optionSearch" value="2">Two</option>
+					<option class="optionSearch" value="3">Three</option>
+				</select>
+				<select class="selectSearch form-select p-3 mb-3" aria-label="region">
+					<option class="optionSearch" selected>Région</option>
+					<option class="optionSearch" value="1">One</option>
+					<option class="optionSearch" value="2">Two</option>
+					<option class="optionSearch" value="3">Three</option>
+				</select>
+				<div class="d-flex justify-content-center">
+					<button type="submit" class="btnFormIndex p-3 rounded ">Let's go!</button>
+
+				</div>
+			</form>
+
+			<img class="imgSearch w-75 mt-5" src="/assets/images/micro3d.png" alt="">
+		</div>
+
+
+		<div class="results">
+
+
+			{% for i in 0..6 %}
+
+				<div class="card" style="width: 18rem;">
+
+					<img src="https://fakeimg.pl/350x200/?text=Image" class="card-img-top" alt="...">
+
+
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">An item</li>
+							<li class="list-group-item">A second item</li>
+							<li class="list-group-item">A third item</li>
+						</ul>
+						<a href="#" class="btnCardSearch btn p-2 rounded">Contactez le groupe!</a>
+
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+</div>{% endblock %}
