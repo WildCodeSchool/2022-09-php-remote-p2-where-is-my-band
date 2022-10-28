@@ -31,8 +31,15 @@
 .btn {
     background-color: var(--background-color-eerieblack);
     color: var(--color-lightgray);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.btn:hover {
+    border: none;
+    background-color: var(--background-color-bloodred);
+    color: var(--color-cultured);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 .img-index {
     width: 100%;
