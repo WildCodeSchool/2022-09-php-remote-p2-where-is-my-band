@@ -1,0 +1,26 @@
+.navbar {
+    background-color: var(--background-color-eerieblack);
+    max-height: 4rem;
+}
+.nav-link {
+    color: var(--color-lightgray);
+}
+.nav-link:hover {
+    color: var(--color-rubyred);
+}
+.nav-link:focus {
+    color: var(--color-rubyred);
+}
+.collapse {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 12vw;
+}
+.navbar-item img {
+    margin-left: 12vw;
+    max-height: 8rem;
+
+}
+.navbar-brand {
+    padding: 0%;
+}

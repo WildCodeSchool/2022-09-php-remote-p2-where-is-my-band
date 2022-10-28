@@ -4,3 +4,13 @@ h2 {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
