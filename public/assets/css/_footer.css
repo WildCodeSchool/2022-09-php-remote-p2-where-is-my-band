@@ -1,0 +1,12 @@
+.footer {
+    color: var(--color-lightgray);
+    background-color: var(--background-color-eerieblack);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+.footer a {
+    color: var(--color-carnelian);
+    text-decoration: none;
+}
+
