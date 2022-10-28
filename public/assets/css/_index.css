@@ -21,7 +21,7 @@
     margin-top: -150px;
 }
 
-.col-lg-6 {
+.homeTitle {
     background-color: var(--background-color-carnelian);
     border-radius: 30px;
     background: rgba(186, 24, 27, 0.9);
