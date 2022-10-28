@@ -28,7 +28,7 @@ USE whereismyband;
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE user (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 `password` varchar(20),
 email VARCHAR(255),
@@ -49,19 +49,19 @@ department VARCHAR(100),
 
 CREATE TABLE band (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(80) NOT NULL,
-`description` TEXT NOT NULL,
-picture VARCHAR(255);
+name varchar(80),
+`description` TEXT,
+picture VARCHAR(255),
 CONSTRAINT fk_band_localisation
 FOREIGN KEY (localisation_id)
 REFERENCES localisation(id)
 );
 
--- SELECT region, department name
--- FROM localisation
--- INNER JOIN band ON band.id=localisation.band_id;
--- -- Structure de la table `search_instrument`
--- --
+SELECT region, department name
+FROM localisation
+INNER JOIN band ON band.id=localisation.band_id;
+-- Structure de la table `search_instrument`
+--
 
 CREATE TABLE search_instrument (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -106,11 +106,11 @@ CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES lo
 -- Contenu de la table `item`
 --
 
-INSERT INTO `user` (id, password, email, nickname) VALUES
-(1, 'Stuff'),
-(2, 'password'),
-(3, `test@gmail.com`),
-(4, 'Stuff');
+-- INSERT INTO `user` (id, password, email, nickname) VALUES
+-- (1, 'Stuff'),
+-- (2, 'password'),
+-- (3, `test@gmail.com`),
+-- (4, 'Stuff');
 
 
 --
