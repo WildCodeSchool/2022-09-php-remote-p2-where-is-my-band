@@ -48,6 +48,7 @@
 .form-select {
     background-color: var(--background-color-imperialred);
     color: var(--color-cultured);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
 option {
