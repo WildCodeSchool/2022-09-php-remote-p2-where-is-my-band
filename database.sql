@@ -39,37 +39,32 @@ nickname VARCHAR(80)
 --
 
 CREATE TABLE localisation (
-id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-region varchar(100),
-department VARCHAR(100),
+`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+`region` varchar(100),
+`department` VARCHAR(100)
 );
 
 -- Structure de la table `band`
 --
 
 CREATE TABLE band (
-id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(80),
+`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+`name` varchar(80),
 `description` TEXT,
-picture VARCHAR(255),
+`picture` VARCHAR(255),
+`localisation_id` INT NOT NULL,
 CONSTRAINT fk_band_localisation
 FOREIGN KEY (localisation_id)
 REFERENCES localisation(id)
 );
 
-SELECT region, department name
-FROM localisation
-INNER JOIN band ON band.id=localisation.band_id;
--- Structure de la table `search_instrument`
+
+-- Structure de la table `category`
 --
 
-CREATE TABLE search_instrument (
+CREATE TABLE category (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-created_at DATETIME,
-`description` TEXT,
-CONSTRAINT fk_instrument_searchinstrument
-FOREIGN KEY (instrument_id)
-REFERENCES instrument(id)
+`name` VARCHAR(100)
 );
 
 -- Structure de la table `instrument`
@@ -78,19 +73,31 @@ REFERENCES instrument(id)
 CREATE TABLE instrument (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 `name` VARCHAR(255),
+`category_id` INT NOT NULL,
 CONSTRAINT fk_instrument_category
 FOREIGN KEY (category_id)
 REFERENCES category(id)
 );
 
--- Structure de la table `category`
---
+-- SELECT region, department name
+-- FROM localisation
+-- INNER JOIN band ON band.id=localisation.band_id;
+-- -- Structure de la table `search_instrument`
+-- --
 
-CREATE TABLE category (
+CREATE TABLE search_instrument (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-`name` VARCHAR(100),
+created_at DATETIME,
+`description` TEXT,
+`instrument_id`INT NOT NULL,
+`band_id`INT NOT NULL,
+CONSTRAINT fk_instrument_search_instrument
+FOREIGN KEY (instrument_id)
+REFERENCES instrument(id),
+CONSTRAINT fk_band_band_id
+FOREIGN KEY (band_id)
+REFERENCES band(id)
 );
---
 
 -- Structure de la table `musicians`
 --
@@ -99,18 +106,17 @@ CREATE TABLE musicians (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 firstname varchar(80),
 lastname varchar(80),
-adress VARCHAR(255);
+adress VARCHAR(255),
+`instrument_id` INT NOT NULL,
+`localisation_id` INT NOT NULL,
 CONSTRAINT fk_musicians_instrument FOREIGN KEY (instrument_id) REFERENCES instrument(id),
-CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES localisation(id),
+CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES localisation(id)
 );
 -- Contenu de la table `item`
 --
 
--- INSERT INTO `user` (id, password, email, nickname) VALUES
--- (1, 'Stuff'),
--- (2, 'password'),
--- (3, `test@gmail.com`),
--- (4, 'Stuff');
+INSERT INTO `user` (`password`, email, nickname) VALUES
+(`password`,`test@gmail.com`,`Stuff`);
 
 
 --
@@ -120,8 +126,6 @@ CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES lo
 --
 -- Index pour la table `item`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -130,8 +134,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT pour la table `item`
 --
-ALTER TABLE `item`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
