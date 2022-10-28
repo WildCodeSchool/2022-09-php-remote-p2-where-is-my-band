@@ -16,4 +16,6 @@ return [
     'aboutus' => ['HomeController', 'aboutus',],
     'contact' => ['HomeController', 'contact'],
     'validation' => ['HomeController', 'validation'],
+    'mentions' => ['HomeController', 'mentions',],
+    'index' => ['HomeController', 'index',],
 ];
