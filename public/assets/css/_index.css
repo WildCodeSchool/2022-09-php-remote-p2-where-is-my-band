@@ -7,7 +7,7 @@
     background-repeat: no-repeat;
 }
 
-.bg-image-40vh::before{
+.bg-image-40vh::before {
     content: "";
     position: absolute;
     top: 0;
@@ -17,7 +17,7 @@
     background-color: rgb(0, 0, 0 / 25%);
 }
 
-.bg-image-40vh + .container-fluid {
+.bg-image-40vh+.container-fluid {
     margin-top: -150px;
 }
 
@@ -28,9 +28,22 @@
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-.btn {
+.btnHomeContact {
     background-color: var(--background-color-eerieblack);
     color: var(--color-lightgray);
+    border: none;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    font-size: large;
+}
+
+.btnHomeContact:hover {
+    background-color: var(--background-color-lightgray);
+    color: var(--color-eerieblack);
+    border: none;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    font-size: large;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -41,17 +54,17 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.img-index {
+.imgIndex {
     width: 100%;
 }
 
-.form-select {
+.selectSearch {
     background-color: var(--background-color-imperialred);
     color: var(--color-cultured);
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
-option {
+.optionSearch {
     background-color: var(--background-color-cultured);
     color: var(--color-carnelian);
 }
@@ -68,4 +81,11 @@ option {
     background-color: var(--background-color-lightgray);
     color: var(--color-carnelian);
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+@media (max-width: 600px) {
+    .divImgIndex{
+        display: none;
+    }
+
 }
