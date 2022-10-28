@@ -1,4 +1,13 @@
-html, body {
+h2 {
+    text-align: center;
+    color: var(--color-rubyred);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+html,
+body {
+
     min-height: 100vh;
 }
 
@@ -12,5 +21,4 @@ body {
 h1 {
     color: var(--color-lightgray);
     margin-bottom: 2.5rem;
-    
 }
