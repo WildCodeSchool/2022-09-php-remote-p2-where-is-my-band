@@ -13,10 +13,12 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+    'createband' => ['HomeController', 'createBand'],
     'results' => ['BandController', 'results',],
     'aboutus' => ['HomeController', 'aboutus',],
     'contact' => ['HomeController', 'contact'],
     'validation' => ['HomeController', 'validation'],
     'mentions' => ['HomeController', 'mentions',],
     'index' => ['HomeController', 'index',],
+
 ];
