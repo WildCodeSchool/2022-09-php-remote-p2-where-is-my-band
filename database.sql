@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 --
 
-CREATE DATABASE whereismyband;
-USE whereismyband;
 -- --------------------------------------------------------
 
 --
@@ -114,9 +112,6 @@ CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES lo
 );
 -- Contenu de la table `item`
 --
-
-INSERT INTO `user` (`password`, email, nickname) VALUES
-(`password`,`test@gmail.com`,`Stuff`);
 
 
 --
