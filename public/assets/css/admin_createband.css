@@ -1,14 +1,5 @@
-
-.form {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-}
-
-h1
-{
-    border-bottom: solid;
-    border-width: thin;
+.btn {
+    background-color:var(--background-color-rubyred);
+    border-color: var(--background-color-rubyred);
 }
 
