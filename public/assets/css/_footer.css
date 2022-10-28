@@ -2,7 +2,7 @@
     color: var(--color-lightgray);
     background-color: var(--background-color-eerieblack);
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     margin-top: auto;
 }
 .footer a {
@@ -10,3 +10,7 @@
     text-decoration: none;
 }
 
+.btn-footer {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
