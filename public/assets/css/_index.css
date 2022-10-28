@@ -1,0 +1,63 @@
+.bg-image-40vh {
+    position: relative;
+    z-index: -1;
+    height: 40vh;
+    background-image: url('../images/concertcut.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-image-40vh::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0 / 25%);
+}
+
+.bg-image-40vh + .container-fluid {
+    margin-top: -150px;
+}
+
+.homeTitle {
+    background-color: var(--background-color-carnelian);
+    border-radius: 30px;
+    background: rgba(186, 24, 27, 0.9);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.btn {
+    background-color: var(--background-color-eerieblack);
+    color: var(--color-lightgray);
+}
+
+
+.img-index {
+    width: 100%;
+}
+
+.form-select {
+    background-color: var(--background-color-imperialred);
+    color: var(--color-cultured);
+}
+
+option {
+    background-color: var(--background-color-cultured);
+    color: var(--color-carnelian);
+}
+
+.btnFormIndex {
+    border: none;
+    background-color: var(--background-color-carnelian);
+    color: var(--color-cultured);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.btnFormIndex:hover {
+    border: none;
+    background-color: var(--background-color-lightgray);
+    color: var(--color-carnelian);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}

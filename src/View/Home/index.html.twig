@@ -1,8 +1,61 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h1>Hello Wilder !</h1>
-	<p>Find a complete CRUD example on
-		<a href="/items">/items</a>
-		page.</p>
+<div class="bg-image-40vh"></div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="homeTitle col-lg-6 offset-lg-3 p-5 text-center">
+			<h1 class="display-1">
+				Where is my band?
+			</h1>
+				<button href="" type="button" class="btn btn-lg shadow-lg">Inscrivez votre groupe sur la plateforme</button>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col align-self-center mt-5">
+			<img class="img-index" src="/assets/images/microdrum.png" alt="">
+		</div>
+		<div class="col align-self-center mt-5">
+			<form class="form-index" action="">
+					<select class="form-select p-3 mb-3" aria-label="instrument">
+						<option selected>Instrument joué</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+						</select>
+					<select class="form-select p-3 mb-3" aria-label="level">
+						<option selected>Niveau</option>
+						<option value="1">initié</option>
+						<option value="2">débutant</option>
+						<option value="3">semi-professionnel</option>
+						<option value="4">professionnel</option>
+					</select>
+					<select class="form-select p-3 mb-3" aria-label="style">
+						<option selected>Style</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+					<select class="form-select p-3 mb-3" aria-label="region">
+						<option selected>Région</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				<div class="d-flex justify-content-center">
+<button type="submit" class="btnFormIndex p-3 rounded ">Let's go!</button>
+
+				</div>
+			</form>
+		</div>
+
+		<div class="col align-self-center mt-5">
+			<img class="img-index" src="/assets/images/saxoviolon.png" alt="">
+		</div>
+	</div>
+</div>
+
 {% endblock %}
