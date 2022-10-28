@@ -19,7 +19,7 @@
 .navbar-item img {
     margin-left: 12vw;
     max-height: 3.7rem;
-
+    margin-top: 0.35rem;
 }
 .navbar-brand {
     padding: 0%;
@@ -44,7 +44,7 @@
     .navbar {
         padding: 0%;
     }
-    .navbar-item {
+    .navbar-item img {
         margin-top: 0px;
     }
 }
