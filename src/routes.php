@@ -14,4 +14,9 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'results' => ['HomeController', 'results',],
+    'aboutus' => ['HomeController', 'aboutus',],
+    'contact' => ['HomeController', 'contact'],
+    'validation' => ['HomeController', 'validation'],
+    'mentions' => ['HomeController', 'mentions',],
+    'index' => ['HomeController', 'index',],
 ];
