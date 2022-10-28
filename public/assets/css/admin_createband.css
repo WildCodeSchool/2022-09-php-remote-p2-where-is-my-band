@@ -3,3 +3,25 @@
     border-color: var(--background-color-rubyred);
 }
 
+.navbar, .container-fluid {
+    background-color: var(--background-color-eerieblack);
+
+ }
+
+ .nav-link {
+    color: var(--color-lightgray);
+ }
+
+ .nav-link:hover {
+    color:var(--background-color-rubyred);
+ }
+
+ .collapse {
+    color: var(--color-lightgray);
+
+ }
+
+
+ .navbar-toggler-icon {
+    color: aqua;
+ }

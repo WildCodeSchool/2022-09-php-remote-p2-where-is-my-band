@@ -1,10 +1,8 @@
 {% extends "layout.html.twig" %}
 
+ {% block navbar %}{% endblock %}
 {% block body %}
-	<div class="dashboard-wrapper">
-        {% include "Include/admin_navbar.html.twig" %}
         <main>
 		    {% block content %}{% endblock %}
         </main>
-	</div>
 {% endblock %}
