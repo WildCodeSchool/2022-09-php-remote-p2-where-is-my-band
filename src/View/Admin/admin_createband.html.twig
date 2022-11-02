@@ -1,0 +1,48 @@
+{% extends 'Layout/dashboard.html.twig' %}
+
+{% block content %}
+	{# modifier include #}
+
+
+	<div class="container">
+		<h1>
+			Créer un groupe
+		</h1>
+		<form action="" method="post">
+			<div class="row mb-3">
+				<div class="col-lg-6  mb-3">
+					<div class="row">
+						<div class="col-lg-6">
+							<input type="text" class="form-control mb-3" placeholder="First name" aria-label="First name">
+						</div>
+						<div class="col-lg-6">
+							<input type="text" class="form-control mb-3" placeholder="Last name" aria-label="Last name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<input type="text" class="form-control mb-3" placeholder="Région" aria-label="First name">
+						</div>
+						<div class="col-lg-6">
+							<input type="text" class="form-control mb-3" placeholder="Email" aria-label="Last name">
+						</div>
+					</div>
+					<textarea class="form-control"></textarea>
+				</div>
+				<div class="col-lg-6">
+					<div class="picture">
+						<div class="mb-3">
+							<label for="formFile" class="form-label">Photo du groupe</label>
+							<input class="form-control" type="file" id="formFile">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6 offset-3 col-lg-6 offset-lg-0">
+					<button class="btn btn-primary w-100" type="submit">Envoyez</button>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock %}
