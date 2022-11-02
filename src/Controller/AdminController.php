@@ -6,7 +6,6 @@ class AdminController extends AbstractController
 {
     public function createBand(): string
     {
-        var_dump($_POST);
         if (!empty($_POST)) {
             $formValues = array_map('trim', $_POST);
             $formValues = array_map('htmlentities', $formValues);
