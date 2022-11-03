@@ -4,7 +4,6 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    text-align: center;
 }
 
 /* Changement de disposition sur version desktop */
@@ -17,7 +16,6 @@
     }
 
     .textAboutUs {
-        text-align: center;
         max-width: 40rem;
         margin: 6rem;
     }
@@ -34,9 +32,13 @@
     }
 }
 
+.ab_button {
+    text-align: center;
+}
 
 .aboutUs button {
     box-shadow: black 5px 5px 10px;
+    display: inline-block;
 }
 
 .silouhette {
