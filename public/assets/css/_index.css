@@ -29,7 +29,6 @@
 }
 
 .btnHomeContact {
-    background-color: var(--background-color-eerieblack);
     color: var(--color-lightgray);
     border: none;
     padding: 1rem;
