@@ -29,7 +29,6 @@
 }
 
 .btnHomeContact {
-    background-color: var(--background-color-eerieblack);
     color: var(--color-lightgray);
     border: none;
     padding: 1rem;
@@ -49,31 +48,6 @@
 
 .imgIndex {
     width: 100%;
-}
-
-.selectSearch {
-    background-color: var(--background-color-imperialred);
-    color: var(--color-cultured);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
-}
-
-.optionSearch {
-    background-color: var(--background-color-cultured);
-    color: var(--color-carnelian);
-}
-
-.btnFormIndex {
-    border: none;
-    background-color: var(--background-color-carnelian);
-    color: var(--color-cultured);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-
-.btnFormIndex:hover {
-    border: none;
-    background-color: var(--background-color-lightgray);
-    color: var(--color-carnelian);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 @media (max-width: 600px) {

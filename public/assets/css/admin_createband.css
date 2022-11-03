@@ -3,7 +3,7 @@
     border-color: var(--background-color-rubyred);
 }
 
-.navbar, .container-fluid {
+.navbar .container-fluid {
     background-color: var(--background-color-eerieblack);
 
  }

@@ -9,9 +9,8 @@
 					Where is my band?
 				</h1>
 
-				<a class="aHomeContact" href="{{ 'contact' }}">
-					<button type="button" class="btnHomeContact rounded shadow-lg">Inscrivez votre groupe sur la plateforme</button>
-				</a>
+				<a class="btnHomeContact btn rounded shadow-lg" href="{{ 'contact' }}">Inscrivez votre groupe sur la plateforme</a>
+
 			</div>
 		</div>
 	</div>
@@ -24,37 +23,7 @@
 			</div>
 			<div class="col align-self-center mt-5">
 				<h2>Musiciens, recherchez votre groupe</h2>
-				<form class="fomrSearch mb-5" action="">
-					<select class="selectSearch form-select p-3 mb-3" aria-label="instrument">
-						<option class="optionSearch" selected>Instrument joué</option>
-						<option class="optionSearch" value="1">One</option>
-						<option class="optionSearch" value="2">Two</option>
-						<option class="optionSearch" value="3">Three</option>
-					</select>
-					<select class="selectSearch form-select p-3 mb-3" aria-label="level">
-						<option class="optionSearch" selected>Niveau</option>
-						<option class="optionSearch" value="1">initié</option>
-						<option class="optionSearch" value="2">débutant</option>
-						<option class="optionSearch" value="3">semi-professionnel</option>
-						<option class="optionSearch" value="4">professionnel</option>
-
-					</select>
-					<select class="selectSearch form-select p-3 mb-3" aria-label="style">
-						<option class="optionSearch" selected>Style</option>
-						<option class="optionSearch" value="1">One</option>
-						<option class="optionSearch" value="2">Two</option>
-						<option class="optionSearch" value="3">Three</option>
-					</select>
-					<select class="selectSearch form-select p-3 mb-3" aria-label="region">
-						<option class="optionSearch" selected>Région</option>
-						<option class="optionSearch" value="1">One</option>
-						<option class="optionSearch" value="2">Two</option>
-						<option class="optionSearch" value="3">Three</option>
-					</select>
-					<div class="d-flex justify-content-center">
-						<button type="submit" class="btnFormIndex p-3 rounded ">Let's go!</button>
-					</div>
-				</form>
+                {% include "Include/_filterform.html.twig" %}
 			</div>
 
 			<div class="divImgIndex col align-self-center mt-5">
