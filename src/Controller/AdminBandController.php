@@ -22,7 +22,7 @@ class AdminBandController extends AbstractController
             $band = array_map('trim', $_POST);
             $errors = $this->validate($band);
             if (empty($errors)) {
-               $this->bandManager->insert($band);
+                $this->bandManager->insert($band);
                 header('Location: /');
             }
         }
@@ -51,6 +51,7 @@ class AdminBandController extends AbstractController
         // if (empty($band['picture'])) {
         //     $errors['picture'] = 'Le champ picture est obligatoire.';
         // }
+        // a dé commenter une fois la verif upload terminé
         if (empty($band['localisation_id'])) {
             $errors['localisation_id'] = 'Le champ localisation est obligatoire.';
         }
