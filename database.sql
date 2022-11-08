@@ -38,8 +38,7 @@ nickname VARCHAR(80)
 
 CREATE TABLE localisation (
 `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-`region` varchar(100),
-`department` VARCHAR(100)
+`region` varchar(100)
 );
 
 -- Structure de la table `band`
@@ -51,6 +50,8 @@ CREATE TABLE band (
 `description` TEXT,
 `picture` VARCHAR(255),
 `localisation_id` INT NOT NULL,
+`number` INT NOT NULL,
+`email` VARCHAR(255),
 CONSTRAINT fk_band_localisation
 FOREIGN KEY (localisation_id)
 REFERENCES localisation(id)
@@ -110,9 +111,23 @@ adress VARCHAR(255),
 CONSTRAINT fk_musicians_instrument FOREIGN KEY (instrument_id) REFERENCES instrument(id),
 CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES localisation(id)
 );
--- Contenu de la table `item`
---
 
+
+-- Insertion des régions sur la table localisation
+INSERT INTO localisation
+VALUES (1, 'Auvergne-Rhône-Alpes'),
+       (2, 'Bourgogne-Franche-Comté'),
+       (3, 'Bretagne'),
+       (4, 'Centre-Val de Loire'),
+       (5, 'Corse'),
+       (6, 'Grand Est'),
+       (7, 'Hauts-de-France'),
+       (8, 'Ile-de-France'),
+       (9, 'Normandie'),
+       (10, 'Nouvelle-Aquitaine'),
+       (11, 'Occitanie'),
+       (12, 'Pays de la Loire'),
+       (13, "Provence-Alpes-Côte d'Azur");
 
 --
 -- Index pour les tables exportées

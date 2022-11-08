@@ -1,6 +1,6 @@
 {% extends "layout.html.twig" %}
 
- {% block navbar %}{% endblock %}
+ {% block navbar %}{% include "Admin/admin_navbar.html.twig" %}{% endblock %}
 {% block body %}
         <main>
 		    {% block content %}{% endblock %}
