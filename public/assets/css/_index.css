@@ -17,7 +17,7 @@
     background-color: rgb(0, 0, 0 / 25%);
 }
 
-.bg-image-40vh+.container-fluid {
+.bg-image-40vh+.titleIndex {
     margin-top: -150px;
 }
 
@@ -46,40 +46,8 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.btn:hover {
-    border: none;
-    background-color: var(--background-color-bloodred);
-    color: var(--color-cultured);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
 .imgIndex {
     width: 100%;
-}
-
-.selectSearch {
-    background-color: var(--background-color-imperialred);
-    color: var(--color-cultured);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
-}
-
-.optionSearch {
-    background-color: var(--background-color-cultured);
-    color: var(--color-carnelian);
-}
-
-.btnFormIndex {
-    border: none;
-    background-color: var(--background-color-carnelian);
-    color: var(--color-cultured);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-
-.btnFormIndex:hover {
-    border: none;
-    background-color: var(--background-color-lightgray);
-    color: var(--color-carnelian);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 @media (max-width: 600px) {
