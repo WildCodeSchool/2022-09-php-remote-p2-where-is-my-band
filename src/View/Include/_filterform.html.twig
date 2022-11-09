@@ -1,31 +1,60 @@
-<form class="fomrSearch mb-5" action="">
-	<select class="selectSearch form-select p-3 mb-3" aria-label="instrument">
-		<option class="optionSearch" selected>Instrument joué</option>
-		<option class="optionSearch" value="1">One</option>
-		<option class="optionSearch" value="2">Two</option>
-		<option class="optionSearch" value="3">Three</option>
+<form class="formSearch mb-5" action="/results">
+	<label class="form-label" for="instrument">Choisissez votre instrument</label>
+	<select class="selectSearch form-select p-3 mb-3" name="instrument" id="instrument">
+		<option class="optionSearch" value="" selected>-</option>
+		{% for instrument in instruments %}
+			<option value="{{ instrument.id }}">{{instrument.name}}</option>
+		{% endfor %}
 	</select>
-	<select class="selectSearch form-select p-3 mb-3" aria-label="level">
-		<option class="optionSearch" selected>Niveau</option>
-		<option class="optionSearch" value="1">initié</option>
-		<option class="optionSearch" value="2">débutant</option>
-		<option class="optionSearch" value="3">semi-professionnel</option>
-		<option class="optionSearch" value="4">professionnel</option>
-
+	<label class="form-label" for="level">Choisissez votre niveau</label>
+	{% set levels = [
+		'initié',
+		'débutant',
+		'semi-professionnel',
+        'professionnel',
+	] %}
+	<select class="selectSearch form-select p-3 mb-3" id="level" name="level">
+		<option class="optionSearch" selected>-</option>
+		{% for level in levels %}
+			<option value="{{ level }}">{{level}}</option>
+		{% endfor %}
 	</select>
-	<select class="selectSearch form-select p-3 mb-3" aria-label="style">
-		<option class="optionSearch" selected>Style</option>
-		<option class="optionSearch" value="1">One</option>
-		<option class="optionSearch" value="2">Two</option>
-		<option class="optionSearch" value="3">Three</option>
+	<label class="form-label" for="style">Choisissez votre style</label>
+	{% set styles = [
+		'Classique',
+		'Jazz',
+		'Variété française',
+        'Variété internationale',
+		'Musiques du monde ',
+		'Rap',
+		'Musique électronique',
+		'Rock',
+		'Reggae',
+		'Hard Rock',
+		'Heavy Metal',
+        'Soul',
+        'Blues',
+        'Country',
+        'Pop',
+		'R\'n\'B',
+        'Folk',
+		'Alternatif',
+        'Gospel'
+	] %}
+	<select class="selectSearch form-select p-3 mb-3" id="style" name="style">
+		<option class="optionSearch" selected>-</option>
+        {% for style in styles %}
+			<option value="{{ style }}">{{style}}</option>
+		{% endfor %}
 	</select>
-	<select class="selectSearch form-select p-3 mb-3" aria-label="region">
-		<option class="optionSearch" selected>Région</option>
-		<option class="optionSearch" value="1">One</option>
-		<option class="optionSearch" value="2">Two</option>
-		<option class="optionSearch" value="3">Three</option>
+	<label class="form-label" for="localisation_id">Choisissez votre région</label>
+	<select class="selectSearch form-select p-3 mb-3" name="localisation_id" id="localisation_id">
+		<option class="optionSearch" value="" selected>-</option>
+		{% for localisation in localisations %}
+			<option value="{{ localisation.id }}">{{localisation.region}}</option>
+		{% endfor %}
 	</select>
-	<div class="d-flex justify-content-center">
-		<a class="btn btnFilterForm p-3 rounded" href="{{'results'}}">Let's go!</a>
-	</div>
-</form>
+</select>
+<div class="d-flex justify-content-center">
+	<button class="btn btnFilterForm p-3 rounded" type="submit">Let's go!</button>
+</div></form>

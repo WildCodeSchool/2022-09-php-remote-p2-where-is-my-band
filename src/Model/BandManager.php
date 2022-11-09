@@ -8,22 +8,33 @@ class BandManager extends AbstractManager
 {
     public const TABLE = 'band';
 
- /**
-     * Insert new item in database
-     */
-    public function insert(array $band)
+    public function selectAllByQuery(array $search): array
     {
-        $query = 'INSERT INTO ' . self::TABLE . ' (name, description, number, email, picture, localisation_id) VALUES
-        (:name, :description, :number, :email, :picture, :localisation_id)';
+        /**
+         * array $search:
+         * - style
+         * - instrument
+         * - level
+         * - localisation
+         *
+         */
+        $query = 'SELECT * FROM band AS b RIGHT JOIN localisation AS l WHERE b.localisation_id=:localisation_id';
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':name', $band['name'], PDO::PARAM_STR);
-        $statement->bindValue(':description', $band['description'], PDO::PARAM_STR);
-        $statement->bindValue(':number', $band['number'], PDO::PARAM_STR);
-        $statement->bindValue(':email', $band['email'], PDO::PARAM_STR);
-        $statement->bindValue(':picture', $band['picture'], PDO::PARAM_STR);
-        $statement->bindValue(':localisation_id', $band['localisation_id'], PDO::PARAM_STR);
-
+        $statement->bindValue(':localisation', $search['localisation_id'], PDO::PARAM_STR);
         $statement->execute();
-        return $this->pdo->lastInsertId();
+
+        $query = 'SELECT * FROM instrument AS i RIGHT JOIN category AS c WHERE i.category_id=c.id';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':instrument', $search['category_id'], PDO::PARAM_STR);
+        $statement->execute();
+        //bindValue(':style', $search['style']);
+
+
+        // if ($orderBy) {
+        //     $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        // }
+
+        return $this->pdo->query($query)->fetchAll();
     }
 }
+

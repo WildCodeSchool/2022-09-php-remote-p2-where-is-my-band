@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
-use App\Model\BandManager;
+use App\Model\AdminBandManager;
 use App\Model\LocalisationManager;
 
 class AdminBandController extends AbstractController
 {
-    private BandManager $bandManager;
+    private AdminBandManager $adminBandManager;
 
     public function __construct()
     {
         parent::__construct();
-        $this->bandManager = new BandManager();
+        $this->adminBandManager = new AdminBandManager();
     }
 
     public function createBand(): string
@@ -22,7 +22,7 @@ class AdminBandController extends AbstractController
             $band = array_map('trim', $_POST);
             $errors = $this->validate($band);
             if (empty($errors)) {
-                $this->bandManager->insert($band);
+                $this->adminBandManager->insert($band);
                 header('Location: /');
             }
         }
