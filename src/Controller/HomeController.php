@@ -13,7 +13,7 @@ class HomeController extends AbstractController
     public function index(): string
     {
         $localisationManager = new LocalisationManager();
-        $instrumentManager= new InstrumentManager();
+        $instrumentManager = new InstrumentManager();
         return $this->twig->render('Home/index.html.twig', [
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),

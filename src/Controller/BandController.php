@@ -21,9 +21,7 @@ class BandController extends AbstractController
         $search = $_GET;
         $bandManager = new BandManager();
         $bands = $bandManager->selectAllByQuery($search);
-        var_dump($bands);
-        die();
-        $instrumentManager= new InstrumentManager();
+        $instrumentManager = new InstrumentManager();
         $localisationManager = new LocalisationManager();
         return $this->twig->render('Band/results.html.twig', [
             'bands' => $bands,

@@ -37,4 +37,3 @@ class BandManager extends AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 }
-
