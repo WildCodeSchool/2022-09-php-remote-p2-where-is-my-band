@@ -47,8 +47,8 @@
 			<option value="{{ style }}">{{style}}</option>
 		{% endfor %}
 	</select>
-	<label class="form-label" for="localisation_id">Choisissez votre région</label>
-	<select class="selectSearch form-select p-3 mb-3" name="localisation_id" id="localisation_id">
+	<label class="form-label" for="localisation">Choisissez votre région</label>
+	<select class="selectSearch form-select p-3 mb-3" name="localisation" id="localisation">
 		<option class="optionSearch" value="" selected>-</option>
 		{% for localisation in localisations %}
 			<option value="{{ localisation.id }}">{{localisation.region}}</option>

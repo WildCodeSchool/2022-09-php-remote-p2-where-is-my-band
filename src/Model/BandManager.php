@@ -18,15 +18,15 @@ class BandManager extends AbstractManager
          * - localisation
          *
          */
-        $query = 'SELECT * FROM band AS b RIGHT JOIN localisation AS l WHERE b.localisation_id=:localisation_id';
+        $query = 'SELECT * FROM band AS b JOIN localisation AS l ON b.localisation_id=l.id
+        JOIN search_instrument AS s_i ON b.id=s_i.band_id WHERE b.localisation_id=:localisation
+        AND s_i.instrument_id=:instrument';
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':localisation', $search['localisation_id'], PDO::PARAM_STR);
+        $statement->bindValue(':localisation', $search['localisation'], PDO::PARAM_INT);
+        $statement->bindValue(':instrument', $search['instrument'], PDO::PARAM_INT);
         $statement->execute();
 
-        $query = 'SELECT * FROM instrument AS i RIGHT JOIN category AS c WHERE i.category_id=c.id';
-        $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':instrument', $search['category_id'], PDO::PARAM_STR);
-        $statement->execute();
+
         //bindValue(':style', $search['style']);
 
 

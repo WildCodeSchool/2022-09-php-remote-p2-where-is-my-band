@@ -8,13 +8,7 @@ use App\Model\InstrumentManager;
 
 class BandController extends AbstractController
 {
-    // private BandManager $bandManager;
 
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->bandManager = new BandManager();
-    // }
 
     public function results(): string
     {
