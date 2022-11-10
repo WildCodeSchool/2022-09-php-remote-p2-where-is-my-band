@@ -20,12 +20,43 @@ class AdminBandController extends AbstractController
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $band = array_map('trim', $_POST);
+            $band['file'] = '';
             $errors = $this->validate($band);
             if (empty($errors)) {
-                $this->adminBandManager->insert($band);
-                header('Location: /');
+                // upload file
+                if (isset($_FILES['file'])) {
+                    $tmpName = $_FILES['file']['tmp_name'];
+                    $name = $_FILES['file']['name'];
+                    $size = $_FILES['file']['size'];
+
+                    // TEST //
+                    $uploadDir = '/../../public/uploads/';
+                    $extension = pathinfo($name, PATHINFO_EXTENSION);
+                    $fileName = pathinfo($name, PATHINFO_FILENAME) . '-' . uniqid() . "." . $extension;
+                    $uploadFile = $uploadDir . $fileName;
+                    $authorizedExtensions = ['jpg', 'gif', 'png', 'webp'];
+                    $maxFileSize = 5000000;
+
+                    if ((!in_array($extension, $authorizedExtensions))) {
+                        $errors['file_extension'] = 'Veuillez sélectionner une image de type JPG, PNG, GIF ou WEBP';
+                    }
+
+                    if (file_exists($tmpName) && filesize($tmpName) > $maxFileSize) {
+                        $errors[$size] = "Veuillez choisir un fichier de moins de 5Mo !";
+                    }
+
+                    if (empty($errors)) {
+                        $band['file'] = $fileName;
+                        if (move_uploaded_file($tmpName, __DIR__ . $uploadFile)) {
+                            $this->adminBandManager->insert($band);
+                            header('Location: /createband');
+                        }
+                    }
+                }
             }
         }
+
+
 
         $localisationManager = new LocalisationManager();
         return $this->twig->render('Admin/admin_createband.html.twig', [
@@ -51,7 +82,6 @@ class AdminBandController extends AbstractController
         // if (empty($band['picture'])) {
         //     $errors['picture'] = 'Le champ picture est obligatoire.';
         // }
-        // a dé commenter une fois la verif upload terminé
         if (empty($band['localisation_id'])) {
             $errors['localisation_id'] = 'Le champ localisation est obligatoire.';
         }

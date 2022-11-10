@@ -20,7 +20,7 @@
 							</div>
 						</div>
 						<div class="col-lg-6">
-                        <label class="form-label">Nombre de musiciens</label>
+							<label class="form-label">Nombre de musiciens</label>
 							<input name="number" id="number" type="number" class="form-control mb-3" placeholder="Nombre de musiciens">
 						</div>
 					</div>
@@ -42,25 +42,68 @@
 							</div>
 						</div>
 						<div class="col-lg-6">
-                        <label class="form-label">Email du groupe</label>
+							<label class="form-label">Email du groupe</label>
 							<input name="email" type="email" id="email" class="form-control mb-3" placeholder="groupe@email.fr">
 						</div>
 					</div>
-                    <label class="form-label">Description</label>
+					<div class="col-lg-6">
+						<div class="mb-3">
+							<label class="form-label" for="style">Choisissez votre style</label>
+							{% set styles = [
+								'Classique',
+								'Jazz',
+								'Variété française',
+ 						        'Variété internationale',
+								'Musiques du monde ',
+								'Rap',
+								'Musique électronique',
+								'Rock',
+								'Reggae',
+								'Hard Rock',
+								'Heavy Metal',
+						        'Soul',
+                                'Blues',
+                                'Country',
+                                'Pop',
+		                        'R\'n\'B',
+                                'Folk',
+		                        'Alternatif',
+                                'Gospel'
+	                        ] %}
+							<select class="form-select" id="style" name="style">
+								<option class="optionSearch" selected>-</option>
+								{% for style in styles %}
+									<option value="{{ style }}">{{style}}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+
+					<label class="form-label">Description</label>
 					<textarea name="description" id="description" class="form-control"></textarea>
 				</div>
 				<div class="col-lg-6">
 					<div class="picture">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">Photo du groupe</label>
-							<input name="picture" class="form-control" type="file" id="formFile">
+							<input name="file" class="form-control" type="file" id="imageUpload">
+							{% if errors.file_extension %}
+								<div class="text-danger">
+									{{errors.file_extension}}
+								</div>
+							{% endif %}
+							{% if errors.file_size %}
+								<div class="text-danger">
+									{{errors.file_size}}
+								</div>
+							{% endif %}
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-6 offset-3 col-lg-6 offset-lg-0">
-					<button class="adminBtn  btn w-100" type="submit">Envoyez</button>
+					<button name="send" class="adminBtn  btn w-100" type="submit">Envoyez</button>
 				</div>
 			</div>
 		</form>
