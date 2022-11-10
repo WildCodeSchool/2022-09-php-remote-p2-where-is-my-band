@@ -52,6 +52,7 @@ CREATE TABLE band (
 `localisation_id` INT NOT NULL,
 `number` INT NOT NULL,
 `email` VARCHAR(255),
+`style` VARCHAR(255),
 CONSTRAINT fk_band_localisation
 FOREIGN KEY (localisation_id)
 REFERENCES localisation(id)
