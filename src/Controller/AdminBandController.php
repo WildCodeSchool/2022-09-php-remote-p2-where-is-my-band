@@ -28,23 +28,23 @@ class AdminBandController extends AbstractController
                     $tmpName = $_FILES['file']['tmp_name'];
                     $name = $_FILES['file']['name'];
                     $size = $_FILES['file']['size'];
-                    $error = $_FILES['file']['error'];
+                    // $error = $_FILES['file']['error'];
                     $type = $_FILES['file']['type'];
 
                     // TEST //
                     $uploadDir = '/../../public/uploads/';
-                    $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+                    $extension = pathinfo($name, PATHINFO_EXTENSION);
                     $fileName = pathinfo($name, PATHINFO_FILENAME) . '-' . uniqid() . "." . $extension;
                     $uploadFile = $uploadDir . $fileName;
                     $authorizedExtensions = ['jpg', 'gif', 'png', 'webp'];
-
                     $maxFileSize = 5000000;
 
                     if ((!in_array($extension, $authorizedExtensions))) {
-                        $errors['file_extension'] = 'Veuillez sélectionner une image de type JPG, PNG, GIF ou WEBP !';}
-                    if (file_exists($_FILES['file']['tmp_name']) && filesize($_FILES['file']['tmp_name']) > $maxFileSize)
-                     {
-                        $errors['file_size'] = "Veuillez choisir un fichier de moins de 5Mo !";
+                        $errors['file_extension'] = 'Veuillez sélectionner une image de type JPG, PNG, GIF ou WEBP';
+                    }
+
+                    if (file_exists($tmpName) && filesize($tmpName) > $maxFileSize) {
+                        $errors[$size] = "Veuillez choisir un fichier de moins de 5Mo !";
                     }
 
                     if (empty($errors)) {
