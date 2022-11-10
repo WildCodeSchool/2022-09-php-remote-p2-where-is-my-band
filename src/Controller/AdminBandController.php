@@ -28,8 +28,6 @@ class AdminBandController extends AbstractController
                     $tmpName = $_FILES['file']['tmp_name'];
                     $name = $_FILES['file']['name'];
                     $size = $_FILES['file']['size'];
-                    // $error = $_FILES['file']['error'];
-                    $type = $_FILES['file']['type'];
 
                     // TEST //
                     $uploadDir = '/../../public/uploads/';
