@@ -168,7 +168,9 @@ VALUES (1, 'Piano', 2),
        (25, 'Tambourin', 4);
 
 -- Insertion des catégories sur la table category
-
+    INSERT INTO band
+    VALUES (1, 'Nirvana', 'Nirvana est un groupe de grunge américain, originaire d\'Aberdeen, dans l\'État de Washington, formé en 1987 par le chanteur-guitariste Kurt Cobain et le bassiste Krist Novoselic.', 'Image de Kurt', 1, 4, 'kurt.cobain@RIP.com', 'professionnel'),
+    (2, 'ACDC', 'ACDC est un groupe de hard rock australo-britannique, originaire de Sydney. Il est formé en 1973 par les frères écossais Angus et Malcolm Young.', 'Image de Angus', 2, 5, 'angus.young@petit-ecolier.com', 'professionnel');
 
 --
 -- Index pour les tables exportées

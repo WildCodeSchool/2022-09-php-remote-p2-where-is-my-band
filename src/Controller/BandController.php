@@ -8,8 +8,6 @@ use App\Model\InstrumentManager;
 
 class BandController extends AbstractController
 {
-
-
     public function results(): string
     {
         $search = $_GET;

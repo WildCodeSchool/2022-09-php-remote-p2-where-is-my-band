@@ -26,14 +26,6 @@ class BandManager extends AbstractManager
         $statement->bindValue(':instrument', $search['instrument'], PDO::PARAM_INT);
         $statement->execute();
 
-
-        //bindValue(':style', $search['style']);
-
-
-        // if ($orderBy) {
-        //     $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
-        // }
-
-        return $this->pdo->query($query)->fetchAll();
+        return $statement->fetchAll();
     }
 }
