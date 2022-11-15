@@ -67,7 +67,7 @@ class AdminBandController extends AbstractController
 
     public function listBand(): string
     {
-        return $this->twig->render('Admin/listBand.html.twig');
+        return $this->twig->render('Admin/admin_listBand.html.twig');
     }
 
     private function validate(array $band): array

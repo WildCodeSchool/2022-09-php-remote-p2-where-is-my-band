@@ -14,7 +14,7 @@ class BandManager extends AbstractManager
     public function insert(array $band)
     {
         $query = 'INSERT INTO ' . self::TABLE . ' (name, description, number, email, style, picture, localisation_id)
-         VALUES
+          VALUES
         (:name, :description, :number, :email, :style, :picture, :localisation_id)';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':name', $band['name'], PDO::PARAM_STR);
