@@ -13,20 +13,20 @@
 		<div class="results">
 
 
-			{% for i in 0..6 %}
+			{% for band in bands %}
 
 				<div class="card" style="width: 18rem;">
 
-					<img src="https://fakeimg.pl/350x200/?text=Image" class="card-img-top" alt="...">
+					<img src="{{band.picture}}" class="card-img-top" alt="...">
 
 
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<h5 class="card-title">{{band.name}}</h5>
+						<p class="card-text">{{band.description}}</p>
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">An item</li>
-							<li class="list-group-item">A second item</li>
-							<li class="list-group-item">A third item</li>
+							<li class="list-group-item">{{band.style}}</li>
+							<li class="list-group-item">localisation</li>
+							<li class="list-group-item">Level</li>
 						</ul>
 						<a href="#" class="btnCardSearch btn p-2 rounded">Contactez le groupe!</a>
 
