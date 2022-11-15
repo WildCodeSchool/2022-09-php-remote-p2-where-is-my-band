@@ -2,22 +2,19 @@
 
 {% block content %}
 
-	<h2>Contactez-nous !</h2>
+	<h2>Contactez votre groupe !</h2>
 
 	<section class="container align-content-center">
 
-		<h4>Si vous souhaitez inscrire votre groupe sur notre site, merci de nous communiquer :</h4>
-		<ul>
-			<li>le nom du groupe</li>
-			<li>sa localisation</li>
-			<li>son style</li>
-			<li>ses membres et leur/s instrument/s</li>
-			<li>le ou les musiciens que vous recherchez</li>
-		</ul>
-		<h5>Pour toute autre demande, n'hésitez pas à nous envoyer un message tout de même ! ;)</h5>
+		<h4>Pour contacter ce groupe, merci de remplir le formulaire :</h4>
+
+		<p>Pour toute autre demande, n'hésitez pas à nous
+			<a href="/contact">
+				envoyer un message par ici</a>
+			! ;)</p>
 
 
-		<img src="./assets/images/vu-meter.png" class="d-block mx-auto mb-2" alt="vu-meter">
+		<img src="./assets/images/silhouettes.png" class="d-block mx-auto mb-2 w-25 " alt="silouhettes">
 
 		<form class="container text-center shadow p-3 mb-5 col-lg-6 bg-body rounded" action="/validation" method="POST">
 			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
@@ -29,6 +26,24 @@
 			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
 				<label for="firstname" class="form-label">Prénom</label>
 				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="firstname" name="firstname" placeholder="Kurt" arial-label="prenom" required>
+				<div class="invalid-feedback">Valeur incorrecte</div>
+			</div>
+
+			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
+				<label for="instrument" class="form-label">Instrument</label>
+				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="instrument" placeholder="Guitare" arial-label="instrument" required>
+				<div class="invalid-feedback">Valeur incorrecte</div>
+			</div>
+
+			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
+				<label for="level" class="form-label">Niveau</label>
+				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="level" placeholder="Pro" arial-label="niveau" required>
+				<div class="invalid-feedback">Valeur incorrecte</div>
+			</div>
+
+			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
+				<label for="localisation" class="form-label">Localisation</label>
+				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="localisation" placeholder="Etat de Washington" arial-label="localisation" required>
 				<div class="invalid-feedback">Valeur incorrecte</div>
 			</div>
 

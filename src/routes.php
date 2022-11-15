@@ -21,5 +21,6 @@ return [
     'mentions' => ['HomeController', 'mentions',],
     'index' => ['HomeController', 'index',],
     'listband' => ['AdminController', 'listBand'],
+    'contact_band' => ['HomeController', 'contact_band']
 
 ];
