@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
-use App\Model\BandManager;
+use App\Model\AdminBandManager;
 use App\Model\LocalisationManager;
 
 class AdminBandController extends AbstractController
 {
-    private BandManager $bandManager;
+    private AdminBandManager $adminBandManager;
 
     public function __construct()
     {
         parent::__construct();
-        $this->bandManager = new BandManager();
+        $this->adminBandManager = new AdminBandManager();
     }
 
     public function createBand(): string
@@ -48,7 +48,7 @@ class AdminBandController extends AbstractController
                     if (empty($errors)) {
                         $band['file'] = $fileName;
                         if (move_uploaded_file($tmpName, __DIR__ . $uploadFile)) {
-                            $this->bandManager->insert($band);
+                            $this->adminBandManager->insert($band);
                             header('Location: /createband');
                         }
                     }
