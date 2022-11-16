@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<h2>Merci
+		{# {{ $_POST['firstname'] }} #}
+		d'avoir contacté le groupe !</h2>
+	<h5 class="text-center">Ils vous répondront dès que possible ♪</h5>
+
+	<p class="text-center fst-italic mt-4">Musicalement vôtre,
+		<br>L'équipe de Where Is My Band?</p>
+	<img src="/assets/images/vinyle-demi-decoupe.png" class="w-25 d-block mx-auto" alt="image">
+
+	<div class="ab_button">
+
+		<a href="/" type="button" class="btn btn-danger btn-lg">
+			Revenir à l'accueil</a>
+	</div>
+
+{% endblock %}

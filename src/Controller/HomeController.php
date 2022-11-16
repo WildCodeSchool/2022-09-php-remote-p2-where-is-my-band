@@ -32,8 +32,13 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/validation.html.twig');
     }
 
-    public function contact_band(): string
+    public function contactband(): string
     {
-        return $this->twig->render('Home/contact_band.html.twig');
+        return $this->twig->render('Home/contactband.html.twig');
+    }
+
+    public function validationband(): string
+    {
+        return $this->twig->render('Home/validationband.html.twig');
     }
 }
