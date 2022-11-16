@@ -86,11 +86,12 @@ REFERENCES category(id)
 -- --
 
 CREATE TABLE search_instrument (
-id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-created_at DATETIME,
+`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+`created_at` DATETIME,
 `description` TEXT,
 `instrument_id`INT NOT NULL,
 `band_id`INT NOT NULL,
+`level` VARCHAR(50),
 CONSTRAINT fk_instrument_search_instrument
 FOREIGN KEY (instrument_id)
 REFERENCES instrument(id),
@@ -129,6 +130,47 @@ VALUES (1, 'Auvergne-Rhône-Alpes'),
        (11, 'Occitanie'),
        (12, 'Pays de la Loire'),
        (13, "Provence-Alpes-Côte d'Azur");
+
+-- Insertion des instrument sur la table instrument
+INSERT INTO category
+VALUES (1, 'Clavier'),
+       (2, 'Cordes'),
+       (3, 'Vents'),
+       (4, 'Percussion'),
+       (5, 'Musiques amplifiées'),
+       (6, 'Voix');
+
+INSERT INTO instrument
+VALUES (1, 'Piano', 2),
+       (2, 'Clavecin', 1),
+       (3, 'Accordéon', 1),
+       (4, 'Violon', 2),
+       (5, 'Violon Alto', 2),
+       (6, 'Violoncelle', 2),
+       (7, 'Contrebasse', 2),
+       (8, 'Guitare', 2),
+       (9, 'Flûte à bec', 3),
+       (10, 'Flûte traversière', 3),
+       (11, 'Clarinette', 3),
+       (12, 'Trombone', 3),
+       (13, 'Saxophone', 3),
+       (14, 'Trompette', 3),
+       (15, 'Tuba', 3),
+       (16, 'Batterie', 4),
+       (17, 'Djembé', 4),
+       (18, 'Tambour', 4),
+       (19, 'Guitare électrique', 2),
+       (20, 'Guitare basse', 2),
+       (21, 'Piano musiques amplifiées', 5),
+       (22, 'Musique assistée par ordinateur (MAO)', 5),
+       (23, 'Chant choral', 6),
+       (24, 'Chant musiques amplifiées', 6),
+       (25, 'Tambourin', 4);
+
+-- Insertion des catégories sur la table category
+    INSERT INTO band
+    VALUES (1, 'Nirvana', 'Nirvana est un groupe de grunge américain, originaire d\'Aberdeen, dans l\'État de Washington, formé en 1987 par le chanteur-guitariste Kurt Cobain et le bassiste Krist Novoselic.', 'Image de Kurt', 1, 4, 'kurt.cobain@RIP.com', 'professionnel'),
+    (2, 'ACDC', 'ACDC est un groupe de hard rock australo-britannique, originaire de Sydney. Il est formé en 1973 par les frères écossais Angus et Malcolm Young.', 'Image de Angus', 2, 5, 'angus.young@petit-ecolier.com', 'professionnel');
 
 --
 -- Index pour les tables exportées

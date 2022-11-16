@@ -8,23 +8,24 @@ class BandManager extends AbstractManager
 {
     public const TABLE = 'band';
 
- /**
-     * Insert new item in database
-     */
-    public function insert(array $band)
+    public function selectAllByQuery(array $search): array
     {
-        $query = 'INSERT INTO ' . self::TABLE . ' (name, description, number, email, style, picture, localisation_id)
-         VALUES
-        (:name, :description, :number, :email, :style, :picture, :localisation_id)';
+        /**
+         * array $search:
+         * - style
+         * - instrument
+         * - level
+         * - localisation
+         *
+         */
+        $query = 'SELECT * FROM band AS b JOIN localisation AS l ON b.localisation_id=l.id
+        JOIN search_instrument AS s_i ON b.id=s_i.band_id WHERE b.localisation_id=:localisation
+        AND s_i.instrument_id=:instrument';
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':name', $band['name'], PDO::PARAM_STR);
-        $statement->bindValue(':description', $band['description'], PDO::PARAM_STR);
-        $statement->bindValue(':number', $band['number'], PDO::PARAM_STR);
-        $statement->bindValue(':email', $band['email'], PDO::PARAM_STR);
-        $statement->bindValue(':style', $band['style'], PDO::PARAM_STR);
-        $statement->bindValue(':picture', $band['file'], PDO::PARAM_STR);
-        $statement->bindValue(':localisation_id', $band['localisation_id'], PDO::PARAM_STR);
+        $statement->bindValue(':localisation', $search['localisation'], PDO::PARAM_INT);
+        $statement->bindValue(':instrument', $search['instrument'], PDO::PARAM_INT);
         $statement->execute();
-        return $this->pdo->lastInsertId();
+
+        return $statement->fetchAll();
     }
 }

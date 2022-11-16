@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Model\LocalisationManager;
+use App\Model\InstrumentManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -9,7 +12,12 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        return $this->twig->render('Home/index.html.twig');
+        $localisationManager = new LocalisationManager();
+        $instrumentManager = new InstrumentManager();
+        return $this->twig->render('Home/index.html.twig', [
+            'localisations' => $localisationManager->selectAll(),
+            'instruments' => $instrumentManager->selectAll(),
+        ]);
     }
 
     public function mentions(): string
@@ -30,15 +38,5 @@ class HomeController extends AbstractController
     public function validation(): string
     {
         return $this->twig->render('Home/validation.html.twig');
-    }
-
-    public function contactband(): string
-    {
-        return $this->twig->render('Home/contactband.html.twig');
-    }
-
-    public function validationband(): string
-    {
-        return $this->twig->render('Home/validationband.html.twig');
     }
 }
