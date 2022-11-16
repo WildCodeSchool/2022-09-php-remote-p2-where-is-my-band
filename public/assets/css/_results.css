@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: 1fr;
     margin: 2rem;
+    align-items: start;
 }
 
 .results {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 1em;
-    margin: auto;
+    gap: 1rem;
+    align-items: start;
 }
 
 .card-body {
@@ -44,11 +44,7 @@
     }
 
     .results {
-        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 1em;
-        margin: auto;
     }
 }
 @media (min-width: 960px) {
@@ -60,12 +56,8 @@
     }
 
     .results {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 1em;
-        margin: auto;
-    }
+     }
 }
 
 @media (min-width: 1230px) {
@@ -77,10 +69,6 @@
 }
 
 .results {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 1em;
-    margin: auto;
     }
 }

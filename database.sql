@@ -100,6 +100,7 @@ FOREIGN KEY (band_id)
 REFERENCES band(id)
 );
 
+
 -- Structure de la table `musicians`
 --
 
@@ -169,8 +170,42 @@ VALUES (1, 'Piano', 2),
 
 -- Insertion des catégories sur la table category
     INSERT INTO band
-    VALUES (1, 'Nirvana', 'Nirvana est un groupe de grunge américain, originaire d\'Aberdeen, dans l\'État de Washington, formé en 1987 par le chanteur-guitariste Kurt Cobain et le bassiste Krist Novoselic.', 'Image de Kurt', 1, 4, 'kurt.cobain@RIP.com', 'professionnel'),
-    (2, 'ACDC', 'ACDC est un groupe de hard rock australo-britannique, originaire de Sydney. Il est formé en 1973 par les frères écossais Angus et Malcolm Young.', 'Image de Angus', 2, 5, 'angus.young@petit-ecolier.com', 'professionnel');
+    VALUES
+    (1, 'Nirvana', 'Nirvana est un groupe de grunge américain, originaire d\'Aberdeen, dans l\'État de Washington, formé en 1987 par le chanteur-guitariste Kurt Cobain et le bassiste Krist Novoselic.', 'nirvana.jpg', 1, 4, 'kurt.cobain@RIP.com', 'Rock'),
+    (2, 'ACDC', 'ACDC est un groupe de hard rock australo-britannique, originaire de Sydney. Il est formé en 1973 par les frères écossais Angus et Malcolm Young.', 'acdc.jpg', 1, 5, 'angus.young@petit-ecolier.com', 'Rock'),
+    (3, 'WHISPER NOTE', 'Whisper Note vous transporte dans un univers à la fois unique et résolument rétro en se réappropriant les classiques de la musique jazz. Du swing des années vingt aux standards de la pop moderne, chaque morceau de leur répertoire se teinte d’une couleur jazzy, évoquant l’ambiance feutrée des clubs new-yorkais.', 'whisper-note.jpg', 1, 4, 'contact@whispernote.com', 'Jazz'),
+    (4, 'BE COMBO', 'En proposant des répertoires travaillés, des choix tranchés, des artistes qui ont une actualité foisonnante et qui accompagnent les plus grands.Be combo est un groupe jeune, passionné, fuyant le mauvais goût, avec une énorme envie de partager avec vous son amour de la musique.', 'be-combo.jpg', 1, 6, 'contact@becombo.com', 'Soul'),
+    (5, 'XY MUSIC', 'En duo, trio ou quatuor, en acoustique (strolling) ou électrique, cette formation possède un répertoire très varié. Pop, rock, funk, dance, soul, quels que soient vos goûts musicaux, XY Music répondra à vos demandes.', 'xy-music.jpeg', 13, 4, 'contact@xymusic.com', 'Pop'),
+    (6, 'Metallica', 'Metallica est un groupe de heavy metal américain originaire de Californie et considéré comme le plus grand groupe de metal de tous les temps.', 'metallica.jpg', 1, 4, 'metallica@best-band-ever.com', 'Heavy Metal'),
+    (7, 'System of a Down', 'System of a Down (parfois abrégé en SOAD ou System) est un groupe de rock américain, originaire de Californie.', 'soad.jpg', 1, 4, 'SOAD@toxicity.com', 'Heavy Metal'),
+    (8, 'Slipknot', "Slipknot est un groupe de nu metal américain, originaire de Des Moines, dans l'Iowa. Il est formé par le percussionniste Shawn Crahan, le batteur Joey Jordison, le bassiste Paul Gray et les guitaristes Kun Nong et Donnie Steele en 1995.", 'slipknot.jpg', 1, 9, 'Psychosocial@soignez-moi.com', 'Heavy Metal'),
+    (9, 'Panda Banditt', "Panda Banditt, c'est le duo pop-électro à la formation originale piano/chant + batterie/SPD-SX. Depuis 2016, menée par deux jeunes musiciens. L'énergie est véhiculée par le choix de reprises actuelles mais aussi par le travail du son avec en plus de la batterie, des claviers et du chant, des machines électroniques ( Sampleur, looper, harmoniseur... ).",'panda-banditt.jpg', 11, 2, 'contact@pand-banditt.com', 'Pop'),
+    (10, 'AMANDE ET MIEL', 'Amande et Miel est un groupe de musique aux multiples facettes spécialisé dans les animations musicales des événements privés et de mariages. Soft pop, jazzy groove, swing et touches latines, le groupe navigue avec finesse et aisance entre les genres musicaux choisis avec soin.', 'amandeetmiel.jpg', 11, 2, 'contact@amandeetmiel.com', 'Jazz'),
+    (11, 'Pastel', 'Harmonisé à 2 voix, le répertoire revisite un large champ de variétés françaises et anglophones. De Juliette Armanet à Clara Luciani, Pastel srevisite les grandes chansons de Serge Gainsbourg et des Ritas Mitsouko, ou encore Janis Joplin', 'pastel.jpeg', 8, 2, 'contact@pastel.com', 'Variété française'),
+    (12, 'Alice April', 'DJ Open format, Latin house / tech house, elle début sa carrière de Dj en 2018 et joue rapidement dans les soirée privées, club et palaces les plus branchés de la capitale', 'aliceapril.jpeg', 8, 1, 'contact@aliceapril.com', 'Musique électronique'),
+    (13, 'Cover Club', 'Cover Club écume les scènes sans relâche et avec succès depuis 2013, à grand coup de reprises bien senties, de groove tenace et de refrains à reprendre en chœur.', 'coverclub.jpeg', 1, 4, 'contact@coverclub.com', 'Rock'),
+    (14, 'Echo', 'Fondé en 2014, ECHO est spécialisé dans les arrangements de tubes intemporels en jouant avec les contrastes de styles et des atmosphères pour apporter une touche personnelle à leur répertoire multi-influencé.', 'echo.jpeg', 1, 2, 'contact@echo.com', 'Blues'),
+    (15, 'Chill', 'Chill est un duo bordelais de musiciens auteurs, compositeurs, et interprètes, avec Yadicone Bassène au chant et Raphaël Bérésina à la guitare.', 'chill.jpeg', 10, 2, 'contact@chill.com', 'Blues'),
+    (16, 'Fuzz', 'Notre répertoire est vaste, du rock, de la pop, du RnB, et de la funk notre but est avant tout de créer une vraie dynamique de soirée pour enflammer le dancefloor.', 'fuzz.jpeg', 11, 3, 'contact@fuzz.com', 'Pop'),
+    (17, 'The Majestics', 'The Majestics est un cocktail doux et festif de sonorités latino-américaines, de rythmes swing, jazz, pop et de chansons françaises revisitées.', 'themajestics.jpeg', 13, 3, 'contact@themajestics.com', 'Pop'),
+    (18, 'The Station Kaameleon', 'Leur univers acoustique oscille entre jazz, soul et country, entre énergie et douceur, toujours avec émotions !', 'thestationkaameleon.jpeg', 12, 2, 'contact@thestationkaameleon.com', 'Folk'),
+    (19, 'Chris Cadillac', 'Chris Cadillac est un groupe de strolling (déambulant) mais aussi un groupe fixe, branché sur une source de sonorisation.', 'chriscadillac.jpeg', 13, 4, 'contact@chriscadillac.com', 'Musique du monde'),
+    (20, 'Pepper Club', 'Pepper Club, est une formation de musiciens professionnels adaptée aux événements : concerts, accompagnement des artistes, réceptions, galas, enregistrements studio, animations artistiques...', 'pepperclub.jpeg', 6, 3, 'contact@pepperclub.com', 'Soul');
+
+INSERT INTO search_instrument
+(created_at, instrument_id, band_id, level)
+VALUES
+(NOW(), 1, 1, 'professionnel'),
+(NOW(), 1, 2, 'professionnel'),
+(NOW(), 1, 3, 'professionnel'),
+(NOW(), 6, 4, 'débutant'),
+(NOW(), 8, 6, 'initié'),
+(NOW(), 12, 5, 'professionel'),
+(NOW(), 15, 7, 'professionnel'),
+(NOW(), 19, 8, 'professionnel'),
+(NOW(), 20, 9, 'débutant'),
+(NOW(), 22, 10, 'initié'),
+(NOW(), 23, 11, 'initié');
 
 --
 -- Index pour les tables exportées

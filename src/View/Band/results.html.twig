@@ -11,29 +11,36 @@
 
 
 		<div class="results">
-
-
 			{% for band in bands %}
 
-				<div class="card" style="width: 18rem;">
+				<div class="card h-100" >
 
-					<img src="{{band.picture}}" class="card-img-top" alt="...">
+					<img src="/uploads/{{band.picture}}" class="card-img-top" style="max-width: content" alt="...">
 
 
-					<div class="card-body">
+					<div class="card-body d-flex flex-column h-100">
 						<h5 class="card-title">{{band.name}}</h5>
 						<p class="card-text">{{band.description}}</p>
+						<p class="card-text">{{band.annonce}}</p>
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item">{{band.style}}</li>
-							<li class="list-group-item">localisation</li>
-							<li class="list-group-item">Level</li>
+							<li class="list-group-item">{{band.region}}</li>
+							<li class="list-group-item"><strong>Niveau recherché : </strong>{{band.level}}</li>
 						</ul>
-						<a href="#" class="btnCardSearch btn p-2 rounded">Contactez le groupe!</a>
+						<div class="mt-auto ">
+							<a href="#" class="btnCardSearch btn p-2 rounded">Contactez le groupe!</a>
+						</div>
 
 					</div>
 				</div>
+			{% else %}
+			No matching results
 			{% endfor %}
 		</div>
 	</div>
 
 </div>{% endblock %}
+
+{% block javascript %}
+	<script src="/assets/js/form.js"></script>
+{% endblock %}
