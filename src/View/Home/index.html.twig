@@ -1,6 +1,35 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
-    <p>Find a complete CRUD example on <a href="/items">/items</a> page.</p>
+	<div class="bg-image-40vh"></div>
+	<div class="titleIndex container-fluid">
+		<div class="row">
+			<div class="homeTitle col-lg-6 offset-lg-3 p-5 text-center">
+				<h1 class="display-1">
+					Where is my band?
+				</h1>
+
+				<a class="btnHomeContact btn rounded shadow-lg" href="{{ 'contact' }}">Inscrivez votre groupe sur la plateforme</a>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="bodyIndex container-fluid">
+		<div class="row">
+
+			<div class="divImgIndex col align-self-center mt-5">
+				<img class="imgIndex" src="/assets/images/microdrum.png" alt="">
+			</div>
+			<div class="col align-self-center mt-5">
+				<h2>Musiciens, recherchez votre groupe</h2>
+                {% include "Include/_filterform.html.twig" %}
+			</div>
+
+			<div class="divImgIndex col align-self-center mt-5">
+				<img class="imgIndex" src="/assets/images/saxoviolon.png" alt="">
+			</div>
+		</div>
+	</div>
+
 {% endblock %}

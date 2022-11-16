@@ -1,0 +1,34 @@
+.adminBtn {
+    background-color:var(--background-color-rubyred);
+    border-color: var(--background-color-rubyred);
+    --bs-btn-color: white;
+    --bs-btn-hover-bg: var(--background-color-rubyred);
+    --bs-btn-hover-color: white;
+}
+
+.navbar .container-fluid {
+    background-color: var(--background-color-eerieblack);
+
+ }
+
+ .nav-link {
+    color: var(--color-lightgray);
+ }
+
+ .nav-link:hover {
+    color:var(--background-color-rubyred);
+ }
+
+ .collapse {
+    color: var(--color-lightgray);
+
+ }
+
+
+ h1 {
+    margin-top: 2rem;
+ }
+
+ h2 {
+    margin: 0;
+ }

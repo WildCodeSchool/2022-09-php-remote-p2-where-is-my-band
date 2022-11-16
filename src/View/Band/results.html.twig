@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<div class="pageResults">
+
+		<div class="formAndimage">
+            {% include "Include/_filterform.html.twig" %}
+			<img class="imgSearch w-75 mt-5" src="/assets/images/micro3d.png" alt="">
+		</div>
+
+
+		<div class="results">
+
+
+			{% for band in bands %}
+
+				<div class="card" style="width: 18rem;">
+
+					<img src="{{band.picture}}" class="card-img-top" alt="...">
+
+
+					<div class="card-body">
+						<h5 class="card-title">{{band.name}}</h5>
+						<p class="card-text">{{band.description}}</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">{{band.style}}</li>
+							<li class="list-group-item">localisation</li>
+							<li class="list-group-item">Level</li>
+						</ul>
+						<a href="#" class="btnCardSearch btn p-2 rounded">Contactez le groupe!</a>
+
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+</div>{% endblock %}
