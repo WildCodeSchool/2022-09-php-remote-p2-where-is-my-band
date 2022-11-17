@@ -15,19 +15,22 @@
 
 
 		<img src="./assets/images/silhouettes.png" class="d-block mx-auto mb-2 w-25 " alt="silouhettes">
-
-		<form class="container text-center shadow p-3 mb-5 col-lg-6 bg-body rounded" action="/validationband" method="POST">
+		<form class="container text-center shadow p-3 mb-5 col-lg-6 bg-body rounded" method="POST">
 			<div class="row g-3">
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 ">
 					<label for="lastname" class="form-label">Nom</label>
-					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="lastname" placeholder="Cobain" arial-label="nom" required>
-					<div class="invalid-feedback">Valeur incorrecte</div>
+					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="lastname" name="lastname" placeholder=" Cobain" arial-label=" nom" required>
+					{% if errors.lastname %}
+						<div class="text-danger small">{{errors.lastname}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 ">
 					<label for="firstname" class="form-label">Prénom</label>
 					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="firstname" name="firstname" placeholder="Kurt" arial-label="prenom" required>
-					<div class="invalid-feedback">Valeur incorrecte</div>
+					{% if errors.firstname %}
+						<div class="text-danger small">{{errors.firstname}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
@@ -38,6 +41,9 @@
 							<option class="optionSearch" value=" {{ instrument.id }} ">{{instrument.name}}</option>
 						{% endfor %}
 					</select>
+					{% if errors.instrument %}
+						<div class="text-danger small">{{errors.instrument}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
@@ -54,6 +60,9 @@
 							<option class="optionSearch" value=" {{ level }} ">{{level}}</option>
 						{% endfor %}
 					</select>
+					{% if errors.level %}
+						<div class="text-danger small">{{errors.level}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
@@ -85,6 +94,9 @@
 							<option class="optionSearch" value=" {{ style }} ">{{style}}</option>
 						{% endfor %}
 					</select>
+					{% if errors.style %}
+						<div class="text-danger small">{{errors.style}}</div>
+					{% endif %}
 				</div>
 
 				<div class=" mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
@@ -95,22 +107,34 @@
 							<option class="optionSearch" value=" {{ localisation.id }} ">{{localisation.region}}</option>
 						{% endfor %}
 					</select>
+					{% if errors.localisation %}
+						<div class="text-danger small">{{errors.localisation}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
 					<label for="email" class="form-label">E-mail</label>
-					<input type="email" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="email" placeholder="nirvana@grunge.com" arial-label="email" required><div class="invalid-feedback">Valeur incorrecte</div>
+					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" name="email" id="email" placeholder="nirvana@grunge.com" arial-label="email" required>
+					{% if errors.email %}
+						<div class="text-danger small">{{errors.email}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
 					<label for="phone" class="form-label">Téléphone</label>
-					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="phone" placeholder="06 66 09 28 10" arial-label="email" required><div class="invalid-feedback">Valeur incorrecte</div>
+					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" name="phone" id="phone" placeholder="06 66 09 28 10" arial-label="telephone" required>
+					{% if errors.phone %}
+						<div class="text-danger small">{{errors.phone}}</div>
+					{% endif %}
+
 				</div>
 
 				<div class="mb-3 col-lg-12">
 					<label for="message" class="form-label">Votre message</label>
-					<textarea class="form-control shadow-sm p-3 mb-5 bg-body rounded" id="message" rows="3" placeholder="I'm so happy 'cause today I've found my friends... They're in my head. ♫" arial-label="message" required></textarea>
-					<div class="invalid-feedback">Valeur incorrecte</div>
+					<textarea class="form-control shadow-sm p-3 mb-5 bg-body rounded" name="message" id=" message" rows=" 3" placeholder=" i'm so happy ' cause today i've found my friends... they' re in my head. ♫" arial-label=" message" required></textarea>
+					{% if errors.message %}
+						<div class="text-danger small">{{errors.message}}</div>
+					{% endif %}
 				</div>
 
 				<div>

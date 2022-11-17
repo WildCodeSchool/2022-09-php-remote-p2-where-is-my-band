@@ -6,6 +6,7 @@ use App\Model\BandManager;
 use App\Model\LocalisationManager;
 use App\Model\InstrumentManager;
 
+
 class BandController extends AbstractController
 {
     public function results(): string
@@ -27,16 +28,6 @@ class BandController extends AbstractController
         $localisationManager = new LocalisationManager();
         return $this->twig->render('Include/_filterform.html.twig', [
             'localisations' => $localisationManager->selectAll()
-        ]);
-    }
-
-    public function contactband(): string
-    {
-        $localisationManager = new LocalisationManager();
-        $instrumentManager = new InstrumentManager();
-        return $this->twig->render('Band/contactband.html.twig', [
-            'localisations' => $localisationManager->selectAll(),
-            'instruments' => $instrumentManager->selectAll(),
         ]);
     }
 
