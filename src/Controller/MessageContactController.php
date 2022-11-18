@@ -23,7 +23,6 @@ class MessageContactController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $messageContact = array_map('trim', $_POST);
             $errors = $this->validate($messageContact);
-
             if (empty($errors)) {
                 $this->messContactManager->insert($messageContact);
                 header('Location: /validation');

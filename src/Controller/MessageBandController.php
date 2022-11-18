@@ -24,7 +24,16 @@ class MessageBandController extends AbstractController
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $messageBand = array_map('trim', $_POST);
-            $errors = $this->validate($messageBand);
+            // $errors = $this->validate($messageBand);
+            $this->validateByField($messageBand, 'lastname', 'nom', $errors);
+            $this->validateByField($messageBand, 'firstname', 'prénom', $errors);
+            $this->validateByField($messageBand, 'instrument', 'instrument', $errors);
+            $this->validateByField($messageBand, 'level', 'niveau', $errors);
+            $this->validateByField($messageBand, 'style', 'style', $errors);
+            $this->validateByField($messageBand, 'localisation', 'région', $errors);
+            $this->validateByField($messageBand, 'email', 'email', $errors);
+            $this->validateByField($messageBand, 'phone', 'téléphone', $errors);
+            $this->validateByField($messageBand, 'message', 'message', $errors);
 
             if (empty($errors)) {
                 $this->messageBandManager->insert($messageBand);
@@ -46,36 +55,14 @@ class MessageBandController extends AbstractController
         return $this->twig->render('Admin/listmessage.html.twig');
     }
 
-    private function validate(array $messageBand): array
-    {
-        $errors = [];
-        if (empty($messageBand['lastname'])) {
-            $errors['lastname'] = 'Le champ nom est obligatoire.';
+    private function validateByField(
+        array $messageBand,
+        string $field,
+        string $filedName,
+        array &$errors,
+    ): void {
+        if (empty($messageBand[$field])) {
+            $errors[$field] = 'Le champ ' . $filedName . ' est obligatoire.';
         }
-        if (empty($messageBand['firstname'])) {
-            $errors['firstname'] = 'Le champ prénom est obligatoire.';
-        }
-        if (empty($messageBand['instrument'])) {
-            $errors['instrument'] = 'Le champ instrument est obligatoire.';
-        }
-        if (empty($messageBand['level'])) {
-            $errors['level'] = 'Le champ niveau est obligatoire.';
-        }
-        if (empty($messageBand['style'])) {
-            $errors['style'] = 'Le champ style est obligatoire.';
-        }
-        if (empty($messageBand['localisation'])) {
-            $errors['localisation'] = 'Le champ localisation est obligatoire.';
-        }
-        if (empty($messageBand['email'])) {
-            $errors['email'] = 'Le champ email est obligatoire.';
-        }
-        if (empty($messageBand['phone'])) {
-            $errors['phone'] = 'Le champ téléphone est obligatoire.';
-        }
-        if (empty($messageBand['message'])) {
-            $errors['message'] = 'Le champ message est obligatoire.';
-        }
-        return $errors;
     }
 }
