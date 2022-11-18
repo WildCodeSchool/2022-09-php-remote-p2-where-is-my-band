@@ -4,6 +4,11 @@
     margin: 2rem;
     align-items: start;
 }
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+}
 
 .results {
     display: grid;

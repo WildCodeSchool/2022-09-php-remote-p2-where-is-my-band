@@ -43,16 +43,16 @@ class BandManager extends AbstractManager
             $query .= ' WHERE ';
             $queryArray = [];
             if (!empty($search['localisation'])) {
-                $queryArray [] = 'b.localisation_id=:localisation';
+                $queryArray[] = 'b.localisation_id=:localisation';
             }
             if (!empty($search['instrument'])) {
-                $queryArray [] = 's_i.instrument_id=:instrument';
+                $queryArray[] = 's_i.instrument_id=:instrument';
             }
             if (!empty($search['level'])) {
-                $queryArray [] = 's_i.level=:level';
+                $queryArray[] = 's_i.level=:level';
             }
             if (!empty($search['style'])) {
-                $queryArray [] = 'b.style=:style';
+                $queryArray[] = 'b.style=:style';
             }
             $query .= implode(' AND ', $queryArray);
         }
