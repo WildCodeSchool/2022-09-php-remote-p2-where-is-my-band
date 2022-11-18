@@ -57,7 +57,7 @@
     .navbar-item img {
         margin-top: 0px;
     }
-
+}
     @media screen and (max-width: 431px) {
         .navbar-item img {
             margin-left: 0rem;

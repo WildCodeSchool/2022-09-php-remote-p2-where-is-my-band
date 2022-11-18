@@ -18,7 +18,7 @@ class BandController extends AbstractController
         return $this->twig->render('Band/results.html.twig', [
             'bands' => $bands,
             'localisations' => $localisationManager->selectAll(),
-            'instrument' => $instrumentManager->selectAll()
+            'instruments' => $instrumentManager->selectAll()
         ]);
     }
 

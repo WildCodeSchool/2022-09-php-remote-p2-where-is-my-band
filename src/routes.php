@@ -20,5 +20,5 @@ return [
     'validation' => ['HomeController', 'validation'],
     'mentions' => ['HomeController', 'mentions',],
     'index' => ['HomeController', 'index',],
-    'listband' => ['AdminController', 'listBand'],
+    'listband' => ['AdminBandController', 'listBand'],
 ];
