@@ -16,9 +16,12 @@ return [
     'createband' => ['AdminBandController', 'createBand'],
     'results' => ['BandController', 'results'],
     'aboutus' => ['HomeController', 'aboutus'],
-    'contact' => ['HomeController', 'contact'],
+    'contact' => ['MessageContactController', 'insertMessageContact'],
     'validation' => ['HomeController', 'validation'],
     'mentions' => ['HomeController', 'mentions',],
     'index' => ['HomeController', 'index',],
     'listband' => ['AdminController', 'listBand'],
+    'contactband' => ['MessageBandController', 'insertMessageBand'],
+    'validationband' => ['BandController', 'validationband'],
+    'listmessageband' => ['MessageBandController', 'listMessageBand'],
 ];
