@@ -6,12 +6,12 @@ use App\Model\MessageContactManager;
 
 class MessageContactController extends AbstractController
 {
-    private MessageContactManager $messageContactManager;
+    private MessageContactManager $messContactManager;
 
     public function __construct()
     {
         parent::__construct();
-        $this->messageContactManager = new MessageContactManager();
+        $this->messContactManager = new MessageContactManager();
     }
 
     /**
@@ -25,7 +25,7 @@ class MessageContactController extends AbstractController
             $errors = $this->validate($messageContact);
 
             if (empty($errors)) {
-                $this->messageContactManager->insert($messageContact);
+                $this->messContactManager->insert($messageContact);
                 header('Location: /validation');
             }
         }

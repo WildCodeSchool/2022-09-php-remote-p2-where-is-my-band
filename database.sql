@@ -123,7 +123,7 @@ lastname VARCHAR(80),
 firstname VARCHAR(80),
 email VARCHAR(80),
 phone VARCHAR(80),
-'message' TEXT,
+`message` TEXT
 );
 
 -- Structure de la table `message_band`
@@ -134,12 +134,12 @@ id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 lastname VARCHAR(80),
 firstname VARCHAR(80),
 instrument VARCHAR(80),
-'level' VARCHAR(80),
+`level` VARCHAR(80),
 style VARCHAR(80),
 localisation VARCHAR(100),
 email VARCHAR(80),
 phone VARCHAR(80),
-`message` TEXT,
+`message` TEXT
 );
 
 -- Insertion des régions sur la table localisation
