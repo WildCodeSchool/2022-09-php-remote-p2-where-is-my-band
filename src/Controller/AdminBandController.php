@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Model\AdminBandManager;
 use App\Model\LocalisationManager;
+use App\Model\BandManager;
+use App\Model\InstrumentManager;
 
 class AdminBandController extends AbstractController
 {
@@ -67,7 +69,14 @@ class AdminBandController extends AbstractController
 
     public function listBand(): string
     {
-        return $this->twig->render('Admin/listBand.html.twig');
+        $localisationManager = new LocalisationManager();
+        $instrumentManager = new InstrumentManager();
+        $bandManager = new BandManager();
+        return $this->twig->render('Admin/admin_listband.html.twig', [
+            'localisations' => $localisationManager->selectAll(),
+            'instruments' => $instrumentManager->selectAll(),
+            'bands' => $bandManager->selectAll(),
+        ]);
     }
 
     private function validate(array $band): array

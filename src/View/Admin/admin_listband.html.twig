@@ -1,0 +1,42 @@
+{% extends 'Layout/dashboard.html.twig' %}
+
+{% block content %}
+	<div>
+		<a href="#" class="btnCardSearch btn p-2 rounded m-5">Ajouter un groupe</a>
+
+	</div>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Number</th>
+				<th scope="col">Email</th>
+				<th scope="col">Style</th>
+				<th scope="col">Description</th>
+				<th scope="col">Annonce</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for band in bands %}
+				<tr>
+					<td>{{band.name}}</td>
+					<td>{{band.number}}</td>
+					<td>{{band.email}}</td>
+					<td>{{band.style}}</td>
+					<td>{{band.description}}</td>
+					<td>{{band.annonce}}</td>
+					<td>
+						<a href="#" class="btnCardSearch btn p-2 rounded m-2">Modifier</a>
+					</td>
+					<td>
+						<a href="#" class="btnCardSearch btn p-2 rounded m-2">Supprimer</a>
+
+					</td>
+
+				</tr>
+			{% endfor %}
+		</tbody>
+	</tbody>
+</table>{% endblock %}
