@@ -10,7 +10,7 @@ class BandController extends AbstractController
 {
     public function results(): string
     {
-        $search = $_GET;
+        $search = array_map('trim', $_GET);
         $bandManager = new BandManager();
         $bands = $bandManager->selectAllByQuery($search);
         $instrumentManager = new InstrumentManager();
@@ -18,7 +18,8 @@ class BandController extends AbstractController
         return $this->twig->render('Band/results.html.twig', [
             'bands' => $bands,
             'localisations' => $localisationManager->selectAll(),
-            'instruments' => $instrumentManager->selectAll()
+            'instruments' => $instrumentManager->selectAll(),
+            'search' => $search
         ]);
     }
 

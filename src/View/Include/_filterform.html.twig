@@ -1,22 +1,22 @@
-<form class="formSearch mb-5" action="/results">
+<form class="formSearch mb-5" action="/results" id="form-search">
 	<label class="form-label" for="instrument">Choisissez votre instrument</label>
 	<select class="selectSearch form-select p-3 mb-3" name="instrument" id="instrument">
-		<option class="optionSearch" value="" selected>-</option>
+		<option value="">-</option>
 		{% for instrument in instruments %}
-			<option value="{{ instrument.id }}">{{instrument.name}}</option>
+			<option value="{{ instrument.id }}" {{ instrument.id == search.instrument ? 'selected' }}>{{instrument.name}}</option>
 		{% endfor %}
 	</select>
 	<label class="form-label" for="level">Choisissez votre niveau</label>
 	{% set levels = [
-		'initié',
-		'débutant',
-		'semi-professionnel',
-        'professionnel',
+		'Initié',
+		'Débutant',
+		'Semi-professionnel',
+        'Professionnel',
 	] %}
 	<select class="selectSearch form-select p-3 mb-3" id="level" name="level">
-		<option class="optionSearch" selected>-</option>
+		<option value="">-</option>
 		{% for level in levels %}
-			<option value="{{ level }}">{{level}}</option>
+			<option value="{{ level }}" {{ level == search.level ? 'selected' }}>{{level}}</option>
 		{% endfor %}
 	</select>
 	<label class="form-label" for="style">Choisissez votre style</label>
@@ -42,16 +42,19 @@
         'Gospel'
 	] %}
 	<select class="selectSearch form-select p-3 mb-3" id="style" name="style">
-		<option class="optionSearch" selected>-</option>
-        {% for style in styles %}
-			<option value="{{ style }}">{{style}}</option>
+		<option value="">-</option>
+		{% for style in styles %}
+			<option value="{{ style }}" {{ style == search.style ? 'selected' }}>{{style}}</option>
+
+
 		{% endfor %}
 	</select>
 	<label class="form-label" for="localisation">Choisissez votre région</label>
 	<select class="selectSearch form-select p-3 mb-3" name="localisation" id="localisation">
-		<option class="optionSearch" value="" selected>-</option>
+		<option value="">-</option>
 		{% for localisation in localisations %}
-			<option value="{{ localisation.id }}">{{localisation.region}}</option>
+			<option value="{{ localisation.id }}" {{ localisation.id == search.localisation ? 'selected' }}>{{localisation.region}}</option>
+
 		{% endfor %}
 	</select>
 </select>

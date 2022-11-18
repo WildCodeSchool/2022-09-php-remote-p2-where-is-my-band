@@ -61,10 +61,10 @@
     }
 }
 
-    @media screen and (max-width: 431px) {
-        .navbar-item img {
-            margin-left: 0rem;
-        }
+@media screen and (max-width: 431px) {
+    .navbar-item img {
+        margin-left: 0rem;
+    }
 
     .navbar-brand {
         max-width: 5rem;
