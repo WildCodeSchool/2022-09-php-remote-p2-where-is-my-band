@@ -31,16 +31,6 @@ class BandController extends AbstractController
         ]);
     }
 
-    public function contactband(): string
-    {
-        $localisationManager = new LocalisationManager();
-        $instrumentManager = new InstrumentManager();
-        return $this->twig->render('Band/contactband.html.twig', [
-            'localisations' => $localisationManager->selectAll(),
-            'instruments' => $instrumentManager->selectAll(),
-        ]);
-    }
-
     public function validationband(): string
     {
         return $this->twig->render('Band/validationband.html.twig');

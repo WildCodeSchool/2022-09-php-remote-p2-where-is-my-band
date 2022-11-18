@@ -115,6 +115,33 @@ CONSTRAINT fk_musicians_instrument FOREIGN KEY (instrument_id) REFERENCES instru
 CONSTRAINT fk_musicians_localisation FOREIGN KEY (localisation_id) REFERENCES localisation(id)
 );
 
+-- Structure de la table `message_contact`
+--
+
+CREATE TABLE message_contact (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+lastname VARCHAR(80),
+firstname VARCHAR(80),
+email VARCHAR(80),
+phone VARCHAR(80),
+`message` TEXT
+);
+
+-- Structure de la table `message_band`
+--
+
+CREATE TABLE message_band (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+lastname VARCHAR(80),
+firstname VARCHAR(80),
+instrument VARCHAR(80),
+`level` VARCHAR(80),
+style VARCHAR(80),
+localisation VARCHAR(100),
+email VARCHAR(80),
+phone VARCHAR(80),
+`message` TEXT
+);
 
 -- Insertion des régions sur la table localisation
 INSERT INTO localisation
