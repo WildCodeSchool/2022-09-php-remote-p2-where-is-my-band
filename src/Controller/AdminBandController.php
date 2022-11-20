@@ -58,8 +58,6 @@ class AdminBandController extends AbstractController
             }
         }
 
-
-
         $localisationManager = new LocalisationManager();
         return $this->twig->render('Admin/admin_createband.html.twig', [
             'localisations' => $localisationManager->selectAll(),
@@ -76,6 +74,44 @@ class AdminBandController extends AbstractController
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),
             'bands' => $bandManager->selectAll(),
+
+        ]);
+    }
+
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id = trim($_GET['id']);
+            $bandManager = new AdminBandManager();
+            $bandManager->delete((int)$id);
+            header('Location:/listband');
+        }
+    }
+
+    /**
+     * Edit a specific item
+     */
+    public function edit(int $id): ?string
+    {
+        $bandManager = new AdminBandManager();
+        $localisationManager = new LocalisationManager();
+        $band = $bandManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $band = array_map('trim', $_POST);
+            // var_dump($band);
+            // die();
+            // TODO validations (length, format...)
+            // if validation is ok, update and redirection
+            $bandManager->updateBand($band);
+            header('Location: /listband');
+            return null;
+        }
+        var_dump($band);
+        return $this->twig->render('Admin/admin_editband.html.twig', [
+            'localisations' => $localisationManager->selectAll(),
+            'band' => $band
         ]);
     }
 
@@ -88,9 +124,9 @@ class AdminBandController extends AbstractController
         if (empty($band['description'])) {
             $errors['description'] = 'Le champ description est obligatoire.';
         }
-        // if (empty($band['picture'])) {
-        //     $errors['picture'] = 'Le champ picture est obligatoire.';
-        // }
+        if (empty($band['picture'])) {
+            $errors['picture'] = 'Le champ picture est obligatoire.';
+        }
         if (empty($band['localisation_id'])) {
             $errors['localisation_id'] = 'Le champ localisation est obligatoire.';
         }
