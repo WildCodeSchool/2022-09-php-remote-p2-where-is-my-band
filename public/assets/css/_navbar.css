@@ -37,9 +37,11 @@
     margin-top: 0.5rem;
 }
 
-.navbar-brand h2 {
-    margin-top: 0.5rem;
+.navbar-item h2 {
+    margin-top: 1rem;
     margin-left: 1rem;
+    margin-bottom: 0;
+    font-size: 30px;
     color: var(--color-lightgray);
 }
 
@@ -58,12 +60,13 @@
         margin-top: 0px;
     }
 }
-    @media screen and (max-width: 431px) {
-        .navbar-item img {
-            margin-left: 0rem;
-        }
 
-        .navbar-brand {
-            max-width: 5rem;
-        }
+@media screen and (max-width: 431px) {
+    .navbar-item img {
+        margin-left: 0rem;
     }
+
+    .navbar-brand {
+        max-width: 5rem;
+    }
+}

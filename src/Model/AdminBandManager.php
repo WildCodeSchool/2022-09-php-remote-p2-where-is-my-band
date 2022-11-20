@@ -22,7 +22,6 @@ class AdminBandManager extends AbstractManager
         $statement->bindValue(':email', $band['email'], PDO::PARAM_STR);
         $statement->bindValue(':picture', $band['picture'], PDO::PARAM_STR);
         $statement->bindValue(':localisation_id', $band['localisation_id'], PDO::PARAM_STR);
-
         $statement->execute();
         return $this->pdo->lastInsertId();
     }
