@@ -26,34 +26,10 @@ class AdminBandController extends AbstractController
             $errors = $this->validate($band);
             if (empty($errors)) {
                 // upload file
-                if (isset($_FILES['file'])) {
-                    $tmpName = $_FILES['file']['tmp_name'];
-                    $name = $_FILES['file']['name'];
-                    $size = $_FILES['file']['size'];
-
-                    // TEST //
-                    $uploadDir = '/../../public/uploads/';
-                    $extension = pathinfo($name, PATHINFO_EXTENSION);
-                    $fileName = pathinfo($name, PATHINFO_FILENAME) . '-' . uniqid() . "." . $extension;
-                    $uploadFile = $uploadDir . $fileName;
-                    $authorizedExtensions = ['jpg', 'gif', 'png', 'webp'];
-                    $maxFileSize = 5000000;
-
-                    if ((!in_array($extension, $authorizedExtensions))) {
-                        $errors['file_extension'] = 'Veuillez sélectionner une image de type JPG, PNG, GIF ou WEBP';
-                    }
-
-                    if (file_exists($tmpName) && filesize($tmpName) > $maxFileSize) {
-                        $errors[$size] = "Veuillez choisir un fichier de moins de 5Mo !";
-                    }
-
-                    if (empty($errors)) {
-                        $band['file'] = $fileName;
-                        if (move_uploaded_file($tmpName, __DIR__ . $uploadFile)) {
-                            $this->adminBandManager->insert($band);
-                            header('Location: /createband');
-                        }
-                    }
+                $this->validateFile($errors, $band);
+                if (empty($errors)) {
+                    $this->adminBandManager->insert($band);
+                    header('Location: /createband');
                 }
             }
         }
@@ -96,20 +72,24 @@ class AdminBandController extends AbstractController
         $bandManager = new AdminBandManager();
         $localisationManager = new LocalisationManager();
         $band = $bandManager->selectOneById($id);
-
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $band = array_map('trim', $_POST);
-            // var_dump($band);
-            // die();
-            // TODO validations (length, format...)
-            // if validation is ok, update and redirection
-            $bandManager->updateBand($band);
-            header('Location: /listband');
-            return null;
+            $band['file'] = '';
+            $errors = $this->validate($band);
+            if (empty($errors)) {
+                // upload file
+                $this->validateFile($errors, $band);
+                if (empty($errors)) {
+                    $bandManager->updateBand($band);
+                    header('Location: /listband');
+                }
+            }
         }
-        var_dump($band);
+        // var_dump($band);
         return $this->twig->render('Admin/admin_editband.html.twig', [
+            'errors' => $errors,
             'localisations' => $localisationManager->selectAll(),
             'band' => $band
         ]);
@@ -124,12 +104,37 @@ class AdminBandController extends AbstractController
         if (empty($band['description'])) {
             $errors['description'] = 'Le champ description est obligatoire.';
         }
-        if (empty($band['picture'])) {
-            $errors['picture'] = 'Le champ picture est obligatoire.';
-        }
         if (empty($band['localisation_id'])) {
             $errors['localisation_id'] = 'Le champ localisation est obligatoire.';
         }
         return $errors;
+    }
+
+    private function validateFile(array &$errors, array &$band): void
+    {
+        if (isset($_FILES['file'])) {
+            $tmpName = $_FILES['file']['tmp_name'];
+            $name = $_FILES['file']['name'];
+            $size = $_FILES['file']['size'];
+
+            // TEST //
+            $uploadDir = '/../../public/uploads/';
+            $extension = pathinfo($name, PATHINFO_EXTENSION);
+            $fileName = pathinfo($name, PATHINFO_FILENAME) . '-' . uniqid() . "." . $extension;
+            $uploadFile = $uploadDir . $fileName;
+            $authorizedExtensions = ['jpg', 'gif', 'png', 'webp'];
+            $maxFileSize = 5000000;
+
+            if ((!in_array($extension, $authorizedExtensions))) {
+                $errors['file_extension'] = 'Veuillez sélectionner une image de type JPG, PNG, GIF ou WEBP';
+            }
+
+            if (file_exists($tmpName) && filesize($tmpName) > $maxFileSize) {
+                $errors[$size] = "Veuillez choisir un fichier de moins de 5Mo !";
+            }
+            if (move_uploaded_file($tmpName, __DIR__ . $uploadFile)) {
+                $band['file'] = $fileName;
+            }
+        }
     }
 }

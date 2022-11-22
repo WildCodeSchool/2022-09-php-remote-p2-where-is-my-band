@@ -98,11 +98,8 @@
 				<div class="col-lg-6">
 					<div class="picture">
 						<div class="mb-3">
-							{% if band.picture %}
-								<p>{{ band.picture }}</p>
-							{% endif %}
 							<label for="picture" class="form-label">Photo du groupe</label>
-							<input name="picture" class="form-control" type="file" id="picture">
+							<input name="file" class="form-control" type="file" id="picture">
 							{% if errors.file_extension %}
 								<div class="text-danger">
 									{{errors.file_extension}}

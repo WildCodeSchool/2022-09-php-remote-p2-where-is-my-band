@@ -22,7 +22,7 @@ return [
     'index' => ['HomeController', 'index',],
     'band/delete' => ['AdminBandController', 'delete'],
     'band/edit' => ['AdminBandController', 'edit',['id']],
-    'listband' => ['AdminController', 'listBand'],
+    'listband' => ['AdminBandController', 'listBand'],
     'contactband' => ['MessageBandController', 'insertMessageBand'],
     'validationband' => ['BandController', 'validationband'],
     'listmessageband' => ['MessageBandController', 'listMessageBand'],
