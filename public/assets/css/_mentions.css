@@ -1,13 +1,14 @@
 .section-container {
     max-width: 1200px;
     padding: 20px 30px;
-    position: relative;
     margin: 0 auto;
 }
 
 .section-container h2 {
     text-transform: uppercase;
     margin: 0px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .section-container .wcs{
