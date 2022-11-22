@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\AdminBandManager;
 use App\Model\BandManager;
 use App\Model\LocalisationManager;
 use App\Model\InstrumentManager;
@@ -36,5 +35,16 @@ class BandController extends AbstractController
     public function validationband(): string
     {
         return $this->twig->render('Band/validationband.html.twig');
+    }
+
+    public function showBand(): string
+    {
+        $search = array_map('trim', $_GET);
+        $bandManager = new BandManager();
+        $bands = $bandManager->selectAllByQuery($search);
+        return $this->twig->render('Band/contactband.html.twig', [
+            'bands' => $bands,
+            'search' => $search
+        ]);
     }
 }
