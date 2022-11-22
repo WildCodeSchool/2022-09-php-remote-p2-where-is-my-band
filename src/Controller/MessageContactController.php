@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\MessageContactManager;
+use App\Model\MessageBandManager;
 
 class MessageContactController extends AbstractController
 {
@@ -36,7 +37,12 @@ class MessageContactController extends AbstractController
 
     public function listMessageContact(): string
     {
-        return $this->twig->render('Admin/listmessage.html.twig');
+        $messContactManager = new MessageContactManager();
+        $messageBandManager = new MessageBandManager();
+        return $this->twig->render('Admin/admin_listmessage.html.twig', [
+            'messagesContact' => $messContactManager->selectAll(),
+            'messagesBand' => $messageBandManager->selectAll(),
+        ]);
     }
 
     private function validate(array $messageContact): array
@@ -58,5 +64,15 @@ class MessageContactController extends AbstractController
             $errors['message'] = 'Le champ message est obligatoire.';
         }
         return $errors;
+    }
+
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id = trim($_GET['id']);
+            $messContactManager = new MessageContactManager();
+            $messContactManager->delete((int)$id);
+            header('Location:/listmessage');
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\MessageBandManager;
 use App\Model\LocalisationManager;
 use App\Model\InstrumentManager;
+use App\Model\BandManager;
 
 class MessageBandController extends AbstractController
 {
@@ -48,11 +49,6 @@ class MessageBandController extends AbstractController
             'instruments' => $instrumentManager->selectAll(),
             'errors' => $errors
         ]);
-    }
-
-    public function listMessageBand(): string
-    {
-        return $this->twig->render('Admin/listmessage.html.twig');
     }
 
     private function validateByField(
