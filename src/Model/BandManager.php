@@ -39,7 +39,7 @@ class BandManager extends AbstractManager
 
     private function searchCondition(string &$query, array $search): void
     {
-        if (!empty($search)) {
+        if (!empty($search) && !empty(array_filter($search))) {
             $query .= ' WHERE ';
             $queryArray = [];
             if (!empty($search['localisation'])) {
