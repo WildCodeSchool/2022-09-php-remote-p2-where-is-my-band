@@ -4,6 +4,10 @@
     margin: 2rem;
     align-items: start;
 }
+.card {
+    position:static;
+}
+
 .card-img-top {
     height: 250px;
     object-fit: cover;
