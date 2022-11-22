@@ -234,6 +234,13 @@ VALUES
 (NOW(), 22, 10, 'initié'),
 (NOW(), 23, 11, 'initié');
 
+INSERT INTO message_band
+VALUES (1, 'Axel', 'Crozier', 'Triangle', 'Professionel', 'Heavy Metal', 'Auvergne-Rhône-Alpes', 'acrozier15@icloud.com', '06 46 86 72 36', 'Youhouu je suis un message et je rentre en BDD');
+
+INSERT INTO message_contact
+VALUES (1, 'Axel', 'Crozier', 'acrozier15@icloud.com', '06 46 86 72 36', 'Youhouu je suis un message et je rentre en BDD');
+
+
 --
 -- Index pour les tables exportées
 --

@@ -20,8 +20,9 @@ return [
     'validation' => ['HomeController', 'validation'],
     'mentions' => ['HomeController', 'mentions',],
     'index' => ['HomeController', 'index',],
-    'listband' => ['AdminController', 'listBand'],
+    'listband' => ['AdminBandController', 'listBand'],
     'contactband' => ['MessageBandController', 'insertMessageBand'],
     'validationband' => ['BandController', 'validationband'],
-    'listmessageband' => ['MessageBandController', 'listMessageBand'],
+    'listmessage' => ['MessageContactController', 'listMessageContact'],
+    'message/delete' => ['MessageContactController', 'delete'],
 ];
