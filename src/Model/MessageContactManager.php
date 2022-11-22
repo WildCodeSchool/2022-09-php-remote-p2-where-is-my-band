@@ -24,5 +24,4 @@ class MessageContactManager extends AbstractManager
         $statement->execute();
         return $this->pdo->lastInsertId();
     }
-
 }
