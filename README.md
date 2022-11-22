@@ -79,3 +79,21 @@ then, run it to open it on your localhot :
 docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
 ```
 
+## Instructions for wilders
+
+La page " Contactez-nous" est utilisé pour prendre contact avec l'Administrateur du site afin d'inscrire son groupe.
+
+Pour accéder à la page Administrateur : 
+Les liens à rajouter au localhost : 
+- "/createband"
+- "/listband"
+-"/listmessageband" (le contenu de la page n'a pas été encore merge 😳)
+
+
+Bugs connus 🫣: 
+Page d'accueil : Navbar ouvrerte qui swippe vers la droite
+Page contact : Une fois le formulaire de contact envoyé erreur⚠
+
+
+Responsive 📱: 
+Page d'accueil :  Form pas centré sur la page d'accueil 
