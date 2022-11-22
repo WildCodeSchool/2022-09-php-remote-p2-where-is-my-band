@@ -38,17 +38,23 @@
 
 			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
 				<label for="email" class="form-label">E-mail</label>
-				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="email" name="email" placeholder="nirvana@grunge.com" arial-label="email" required>
+				<input type="email" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="email" name="email" placeholder="nirvana@grunge.com" arial-label="email" required>
 				{% if errors.email %}
 					<div class="text-danger small">{{errors.email}}</div>
+				{% endif %}
+				{% if errors.emailFormat %}
+					<div class="text-danger small">{{errors.emailFormat}}</div>
 				{% endif %}
 			</div>
 
 			<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 offset-lg-3">
 				<label for="phone" class="form-label">Téléphone</label>
-				<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="phone" name="phone" placeholder="06 66 09 28 10" arial-label="phone" required>
-				{% if errors.phone %}
+				<input type="tel" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="phone" name="phone" placeholder="06 66 09 28 10" arial-label="telephone" required>
+				{% if errors.phone %} 
 					<div class="text-danger small">{{errors.phone}}</div>
+				{% endif %} 
+				{% if errors.phoneFormat %}
+				<div class="text-danger small">{{errors.phoneFormat}}</div>
 				{% endif %}
 			</div>
 

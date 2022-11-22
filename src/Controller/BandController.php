@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\AdminBandManager;
 use App\Model\BandManager;
 use App\Model\LocalisationManager;
 use App\Model\InstrumentManager;
@@ -20,6 +21,7 @@ class BandController extends AbstractController
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),
             'search' => $search
+
         ]);
     }
 
