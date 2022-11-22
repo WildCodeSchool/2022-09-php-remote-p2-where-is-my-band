@@ -97,7 +97,7 @@ FOREIGN KEY (instrument_id)
 REFERENCES instrument(id),
 CONSTRAINT fk_band_band_id
 FOREIGN KEY (band_id)
-REFERENCES band(id)
+REFERENCES band(id) ON DELETE CASCADE
 );
 
 
@@ -203,9 +203,9 @@ VALUES (1, 'Piano', 2),
     (3, 'WHISPER NOTE', 'Whisper Note vous transporte dans un univers à la fois unique et résolument rétro en se réappropriant les classiques de la musique jazz. Du swing des années vingt aux standards de la pop moderne, chaque morceau de leur répertoire se teinte d’une couleur jazzy, évoquant l’ambiance feutrée des clubs new-yorkais.', 'whisper-note.jpg', 1, 4, 'contact@whispernote.com', 'Jazz'),
     (4, 'BE COMBO', 'En proposant des répertoires travaillés, des choix tranchés, des artistes qui ont une actualité foisonnante et qui accompagnent les plus grands.Be combo est un groupe jeune, passionné, fuyant le mauvais goût, avec une énorme envie de partager avec vous son amour de la musique.', 'be-combo.jpg', 1, 6, 'contact@becombo.com', 'Soul'),
     (5, 'XY MUSIC', 'En duo, trio ou quatuor, en acoustique (strolling) ou électrique, cette formation possède un répertoire très varié. Pop, rock, funk, dance, soul, quels que soient vos goûts musicaux, XY Music répondra à vos demandes.', 'xy-music.jpeg', 13, 4, 'contact@xymusic.com', 'Pop'),
-    (6, 'Metallica', 'Metallica est un groupe de heavy metal américain originaire de Californie et considéré comme le plus grand groupe de metal de tous les temps.', 'metallica.jpg', 1, 4, 'metallica@best-band-ever.com', 'Heavy Metal'),
-    (7, 'System of a Down', 'System of a Down (parfois abrégé en SOAD ou System) est un groupe de rock américain, originaire de Californie.', 'soad.jpg', 1, 4, 'SOAD@toxicity.com', 'Heavy Metal'),
-    (8, 'Slipknot', "Slipknot est un groupe de nu metal américain, originaire de Des Moines, dans l'Iowa. Il est formé par le percussionniste Shawn Crahan, le batteur Joey Jordison, le bassiste Paul Gray et les guitaristes Kun Nong et Donnie Steele en 1995.", 'slipknot.jpg', 1, 9, 'Psychosocial@soignez-moi.com', 'Heavy Metal'),
+    (6, 'Metallica', 'Metallica est un groupe de heavy metal américain originaire de Californie et considéré comme le plus grand groupe de metal de tous les temps.', 'metallica.jpeg', 1, 4, 'metallica@best-band-ever.com', 'Heavy Metal'),
+    (7, 'System of a Down', 'System of a Down (parfois abrégé en SOAD ou System) est un groupe de rock américain, originaire de Californie.', 'soad.jpeg', 1, 4, 'SOAD@toxicity.com', 'Heavy Metal'),
+    (8, 'Slipknot', "Slipknot est un groupe de nu metal américain, originaire de Des Moines, dans l'Iowa. Il est formé par le percussionniste Shawn Crahan, le batteur Joey Jordison, le bassiste Paul Gray et les guitaristes Kun Nong et Donnie Steele en 1995.", 'slpiknot.jpeg', 1, 9, 'Psychosocial@soignez-moi.com', 'Heavy Metal'),
     (9, 'Panda Banditt', "Panda Banditt, c'est le duo pop-électro à la formation originale piano/chant + batterie/SPD-SX. Depuis 2016, menée par deux jeunes musiciens. L'énergie est véhiculée par le choix de reprises actuelles mais aussi par le travail du son avec en plus de la batterie, des claviers et du chant, des machines électroniques ( Sampleur, looper, harmoniseur... ).",'panda-banditt.jpg', 11, 2, 'contact@pand-banditt.com', 'Pop'),
     (10, 'AMANDE ET MIEL', 'Amande et Miel est un groupe de musique aux multiples facettes spécialisé dans les animations musicales des événements privés et de mariages. Soft pop, jazzy groove, swing et touches latines, le groupe navigue avec finesse et aisance entre les genres musicaux choisis avec soin.', 'amandeetmiel.jpg', 11, 2, 'contact@amandeetmiel.com', 'Jazz'),
     (11, 'Pastel', 'Harmonisé à 2 voix, le répertoire revisite un large champ de variétés françaises et anglophones. De Juliette Armanet à Clara Luciani, Pastel srevisite les grandes chansons de Serge Gainsbourg et des Ritas Mitsouko, ou encore Janis Joplin', 'pastel.jpeg', 8, 2, 'contact@pastel.com', 'Variété française'),
