@@ -25,13 +25,13 @@
 					<td>{{band.number}}</td>
 					<td>{{band.email}}</td>
 					<td>{{band.style}}</td>
-					<td>{{band.description}}</td>
 					<td>{{band.annonce}}</td>
+					<td>{{band.description}}</td>
 					<td>
-						<a href="#" class="btnCardSearch btn p-2 rounded m-2">Modifier</a>
+						<a href="/band/edit?id={{ band.id }}" class="btnCardSearch btn p-2 rounded m-2">Modifier</a>
 					</td>
 					<td>
-						<a href="#" class="btnCardSearch btn p-2 rounded m-2">Supprimer</a>
+						<a href="/band/delete?id={{band.id}}" class="btnCardSearch btn p-2 rounded m-2">Supprimer</a>
 
 					</td>
 

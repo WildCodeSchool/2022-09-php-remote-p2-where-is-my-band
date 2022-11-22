@@ -56,4 +56,16 @@ abstract class AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    /**
+     * Update item in database
+     */
+    public function update(array $item): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
+        $statement->bindValue('id', $item['id'], PDO::PARAM_INT);
+        $statement->bindValue('title', $item['title'], PDO::PARAM_STR);
+
+        return $statement->execute();
+    }
 }
