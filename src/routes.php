@@ -25,4 +25,5 @@ return [
     'validationband' => ['BandController', 'validationband'],
     'listmessage' => ['MessageContactController', 'listMessageContact'],
     'message/delete' => ['MessageContactController', 'delete'],
+    'band/annonce' => ['AdminBandController', 'addannonce', ['band_id']]
 ];
