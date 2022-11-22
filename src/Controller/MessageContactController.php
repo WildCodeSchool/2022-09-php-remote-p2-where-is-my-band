@@ -37,10 +37,10 @@ class MessageContactController extends AbstractController
 
     public function listMessageContact(): string
     {
-        $messageContactManager = new MessageContactManager();
+        $messContactManager = new MessageContactManager();
         $messageBandManager = new MessageBandManager();
         return $this->twig->render('Admin/admin_listmessage.html.twig', [
-            'messagesContact' => $messageContactManager->selectAll(),
+            'messagesContact' => $messContactManager->selectAll(),
             'messagesBand' => $messageBandManager->selectAll(),
         ]);
     }
@@ -70,8 +70,8 @@ class MessageContactController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = trim($_GET['id']);
-            $messageContactManager = new MessageContactManager();
-            $messageContactManager->delete((int)$id);
+            $messContactManager = new MessageContactManager();
+            $messContactManager->delete((int)$id);
             header('Location:/listmessage');
         }
     }
