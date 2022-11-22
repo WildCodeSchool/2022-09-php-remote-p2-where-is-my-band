@@ -20,6 +20,8 @@ return [
     'validation' => ['HomeController', 'validation'],
     'mentions' => ['HomeController', 'mentions',],
     'index' => ['HomeController', 'index',],
+    'band/delete' => ['AdminBandController', 'delete'],
+    'band/edit' => ['AdminBandController', 'edit',['id']],
     'listband' => ['AdminBandController', 'listBand'],
     'contactband' => ['MessageBandController', 'insertMessageBand'],
     'validationband' => ['BandController', 'validationband'],

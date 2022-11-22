@@ -7,3 +7,4 @@ db.php
 .vscode
 .DS_Store
 public/uploads
+.history
