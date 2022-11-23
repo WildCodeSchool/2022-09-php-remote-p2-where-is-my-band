@@ -20,6 +20,7 @@ class BandController extends AbstractController
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),
             'search' => $search
+
         ]);
     }
 

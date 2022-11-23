@@ -20,8 +20,11 @@ class MessageBandController extends AbstractController
     /**
      * Add a new message
      */
-    public function insertMessageBand(): string
+    public function insertMessageBand(int $id): string
     {
+        /**
+         * Initialisation du tableau d'erreur
+         */
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $messageBand = array_map('trim', $_POST);
@@ -35,16 +38,19 @@ class MessageBandController extends AbstractController
             $this->validateByField($messageBand, 'email', 'email', $errors);
             $this->validateByField($messageBand, 'phone', 'téléphone', $errors);
             $this->validateByField($messageBand, 'message', 'message', $errors);
-
-            if (empty($errors)) {
+            $errors[] = $this->validate($messageBand, "email");
+            $errors[] = $this->validate($messageBand, "phone");
+            if (empty($errors[0]) && empty($errors[1])) {
                 $this->messageBandManager->insert($messageBand);
                 header('Location: /validationband');
             }
         }
-
+        $bandManager = new BandManager();
+        $band = $bandManager->selectOneById($id);
         $localisationManager = new LocalisationManager();
         $instrumentManager = new InstrumentManager();
         return $this->twig->render('Band/contactband.html.twig', [
+            'band' => $band,
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),
             'errors' => $errors
@@ -60,5 +66,17 @@ class MessageBandController extends AbstractController
         if (empty($messageBand[$field])) {
             $errors[$field] = 'Le champ ' . $filedName . ' est obligatoire.';
         }
+    }
+
+    private function validate(array $messageBand, string $field): array
+    {
+        $errors = [];
+        if (empty(filter_var($messageBand[$field], FILTER_VALIDATE_EMAIL)) && $field == "email") {
+            $errors['emailFormat'] = 'Le champ email est au mauvais format.';
+        }
+        if (empty(preg_match("/^[0-9 ]*$/", $messageBand[$field])) && $field == "phone") {
+            $errors['phoneFormat'] = 'Le champ téléphone est au mauvais format.';
+        }
+        return $errors;
     }
 }

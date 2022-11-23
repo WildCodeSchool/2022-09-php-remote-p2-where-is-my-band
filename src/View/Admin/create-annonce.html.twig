@@ -1,0 +1,37 @@
+{% extends 'Layout/dashboard.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+<h1>Créer une annonce pour le groupe {{band.name}}</h1>
+<form method="post">
+    <input type="hidden" name="band_id" value="{{band.id}}">
+    <label class="form-label" for="instrument">Choisissez l'instrument</label>
+	<select class="form-select p-3 mb-3" name="instrument" id="instrument">
+		<option value="">-</option>
+		{% for instrument in instruments %}
+			<option value="{{ instrument.id }}" {{ instrument.id == search.instrument ? 'selected' }}>{{instrument.name}}</option>
+		{% endfor %}
+	</select>
+    <label class="form-label" for="level">Choisissez le niveau</label>
+	{% set levels = [
+		'Initié',
+		'Débutant',
+		'Semi-professionnel',
+        'Professionnel',
+	] %}
+	<select class="form-select p-3 mb-3" id="level" name="level">
+		<option value="">-</option>
+		{% for level in levels %}
+			<option value="{{ level }}" {{ level == search.level ? 'selected' }}>{{level}}</option>
+		{% endfor %}
+	</select>
+    <button class="btn adminBtn" type="submit">Enregistrer</button>
+</form>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -132,6 +132,7 @@ phone VARCHAR(80),
 
 CREATE TABLE message_band (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+band_id INT NOT NULL
 lastname VARCHAR(80),
 firstname VARCHAR(80),
 instrument VARCHAR(80),
@@ -141,6 +142,9 @@ localisation VARCHAR(100),
 email VARCHAR(80),
 phone VARCHAR(80),
 `message` TEXT
+CONSTRAINT fk_message_band_band
+FOREIGN KEY (band_id)
+REFERENCES band(id)
 );
 
 -- Insertion des régions sur la table localisation
@@ -227,7 +231,7 @@ VALUES
 (NOW(), 1, 3, 'professionnel'),
 (NOW(), 6, 4, 'débutant'),
 (NOW(), 8, 6, 'initié'),
-(NOW(), 12, 5, 'professionel'),
+(NOW(), 12, 5, 'professionnel'),
 (NOW(), 15, 7, 'professionnel'),
 (NOW(), 19, 8, 'professionnel'),
 (NOW(), 20, 9, 'débutant'),

@@ -6,7 +6,9 @@
 
 	<section class="container align-content-center">
 
-		<h4>Pour contacter ce groupe, merci de remplir le formulaire :</h4>
+
+
+		<h4>Pour contacter {{band.name}}, merci de remplir le formulaire :</h4>
 
 		<p>Pour toute autre demande, n'hésitez pas à nous
 			<a href="/contact">
@@ -118,6 +120,9 @@
 					{% if errors.email %}
 						<div class="text-danger small">{{errors.email}}</div>
 					{% endif %}
+					{% if errors.emailFormat %}
+						<div class="text-danger small">{{errors.emailFormat}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
@@ -126,7 +131,9 @@
 					{% if errors.phone %}
 						<div class="text-danger small">{{errors.phone}}</div>
 					{% endif %}
-
+					{% if errors.phoneFormat %}
+						<div class="text-danger small">{{errors.phoneFormat}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-lg-12">
