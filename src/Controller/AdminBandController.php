@@ -87,7 +87,6 @@ class AdminBandController extends AbstractController
                 }
             }
         }
-        // var_dump($band);
         return $this->twig->render('Admin/admin_editband.html.twig', [
             'errors' => $errors,
             'localisations' => $localisationManager->selectAll(),
