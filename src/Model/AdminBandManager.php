@@ -13,8 +13,8 @@ class AdminBandManager extends AbstractManager
      */
     public function insert(array $band)
     {
-        $query = 'INSERT INTO ' . self::TABLE . ' (name, description, number, email, picture, localisation_id) VALUES
-        (:name, :description, :number, :email, :picture, :localisation_id)';
+        $query = 'INSERT INTO ' . self::TABLE . ' (name, description, number, email, picture, localisation_id, style) 
+        VALUES (:name, :description, :number, :email, :picture, :localisation_id, :style)';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':name', $band['name'], PDO::PARAM_STR);
         $statement->bindValue(':description', $band['description'], PDO::PARAM_STR);
@@ -22,6 +22,7 @@ class AdminBandManager extends AbstractManager
         $statement->bindValue(':email', $band['email'], PDO::PARAM_STR);
         $statement->bindValue(':picture', $band['file'], PDO::PARAM_STR);
         $statement->bindValue(':localisation_id', $band['localisation_id'], PDO::PARAM_INT);
+        $statement->bindValue(':style', $band['style'], PDO::PARAM_STR);
         $statement->execute();
         return $this->pdo->lastInsertId();
     }

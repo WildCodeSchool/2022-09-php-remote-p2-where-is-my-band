@@ -44,10 +44,12 @@ class MessageBandController extends AbstractController
 
         $localisationManager = new LocalisationManager();
         $instrumentManager = new InstrumentManager();
+        $bandManager = new BandManager();
         return $this->twig->render('Band/contactband.html.twig', [
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),
-            'errors' => $errors
+            'errors' => $errors,
+            'bands' => $bandManager->selectAll()
         ]);
     }
 
