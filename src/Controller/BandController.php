@@ -36,15 +36,4 @@ class BandController extends AbstractController
     {
         return $this->twig->render('Band/validationband.html.twig');
     }
-
-    public function showBand(): string
-    {
-        $search = array_map('trim', $_GET);
-        $bandManager = new BandManager();
-        $bands = $bandManager->selectAllByQuery($search);
-        return $this->twig->render('Band/contactband.html.twig', [
-            'bands' => $bands,
-            'search' => $search
-        ]);
-    }
 }

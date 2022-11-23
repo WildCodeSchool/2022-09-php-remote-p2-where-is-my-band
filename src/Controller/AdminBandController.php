@@ -136,4 +136,19 @@ class AdminBandController extends AbstractController
             }
         }
     }
+    public function addAnnonce(int $id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $annonce = array_map('trim', $_POST);
+            $adminBandManager = new AdminBandManager();
+            $adminBandManager->insertAnnonce($annonce);
+            header('Location: /listband');
+        }
+        $bandManager = new BandManager();
+        $instrumentManager = new InstrumentManager();
+        return $this->twig->render('Admin/create-annonce.html.twig', [
+            'band' => $bandManager->selectOneById($id),
+            'instruments' => $instrumentManager->selectAll(),
+        ]);
+    }
 }

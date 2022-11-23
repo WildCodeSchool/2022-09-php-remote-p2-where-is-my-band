@@ -22,10 +22,10 @@ return [
     'index' => ['HomeController', 'index',],
     'band/delete' => ['AdminBandController', 'delete'],
     'band/edit' => ['AdminBandController', 'edit',['id']],
+    'band/create-annonce' => ['AdminBandController', 'addAnnonce',['id']],
     'listband' => ['AdminBandController', 'listBand'],
-    'contactband' => ['MessageBandController', 'insertMessageBand'],
+    'contactband' => ['MessageBandController', 'insertMessageBand',['id']],
     'validationband' => ['BandController', 'validationband'],
     'listmessage' => ['MessageContactController', 'listMessageContact'],
     'message/delete' => ['MessageContactController', 'delete'],
-    'band/annonce' => ['AdminBandController', 'addAnnonce', ['band_id']]
 ];

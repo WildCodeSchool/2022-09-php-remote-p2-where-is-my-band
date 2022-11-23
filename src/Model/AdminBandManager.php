@@ -49,13 +49,12 @@ class AdminBandManager extends AbstractManager
 
     public function insertAnnonce(array $annonce)
     {
-        $query = 'INSERT INTO ' . self::TABLE2 . ' (created_at, description, intrument_id, band_id, level) VALUES
-        (NOW(), :description, :instrument_id, :band, :level)';
+        $query = 'INSERT INTO ' . self::TABLE2 . ' (created_at, instrument_id, band_id, level) VALUES
+        (NOW(), :instrument_id, :band, :level)';
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':instrument_id', $annonce['instrument_id'], PDO::PARAM_INT);
-        $statement->bindValue(':name', $annonce['name'], PDO::PARAM_STR);
-        $statement->bindValue(':description', $annonce['description'], PDO::PARAM_STR);
+        $statement->bindValue(':instrument_id', $annonce['instrument'], PDO::PARAM_INT);
         $statement->bindValue(':level', $annonce['level'], PDO::PARAM_STR);
+        $statement->bindValue(':band', $annonce['band_id'], PDO::PARAM_INT);
         $statement->execute();
         return $this->pdo->lastInsertId();
     }
