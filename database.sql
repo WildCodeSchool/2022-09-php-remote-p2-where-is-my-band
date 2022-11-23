@@ -132,7 +132,7 @@ phone VARCHAR(80),
 
 CREATE TABLE message_band (
 id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-band_id INT NOT NULL
+band_id INT NOT NULL,
 lastname VARCHAR(80),
 firstname VARCHAR(80),
 instrument VARCHAR(80),
@@ -141,7 +141,7 @@ style VARCHAR(80),
 localisation VARCHAR(100),
 email VARCHAR(80),
 phone VARCHAR(80),
-`message` TEXT
+`message` TEXT,
 CONSTRAINT fk_message_band_band
 FOREIGN KEY (band_id)
 REFERENCES band(id)
