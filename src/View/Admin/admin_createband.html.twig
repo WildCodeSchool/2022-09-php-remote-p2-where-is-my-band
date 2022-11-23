@@ -41,15 +41,16 @@
 								{% endif %}
 							</div>
 						</div>
-						<div class="col-lg-6">
-							<label class="form-label">Email du groupe</label>
-							<input name="email" type="email" id="email" class="form-control mb-3" placeholder="groupe@email.fr">
-						</div>
 					</div>
 					<div class="col-lg-6">
-						<div class="mb-3">
-							<label class="form-label" for="style">Choisissez votre style</label>
-							{% set styles = [
+						<label class="form-label">Email du groupe</label>
+						<input name="email" type="email" id="email" class="form-control mb-3" placeholder="groupe@email.fr">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="mb-3">
+						<label class="form-label" for="style">Choisissez votre style</label>
+						{% set styles = [
 								'Classique',
 								'Jazz',
 								'Variété française',
@@ -70,34 +71,33 @@
 		                        'Alternatif',
                                 'Gospel'
 	                        ] %}
-							<select class="form-select" id="style" name="style">
-								<option class="optionSearch" selected>-</option>
-								{% for style in styles %}
-									<option value="{{ style }}">{{style}}</option>
-								{% endfor %}
-							</select>
-						</div>
+						<select class="form-select" id="style" name="style">
+							<option class="optionSearch" selected>-</option>
+							{% for style in styles %}
+								<option value="{{ style }}">{{style}}</option>
+							{% endfor %}
+						</select>
 					</div>
-
-					<label class="form-label">Description</label>
-					<textarea name="description" id="description" class="form-control"></textarea>
 				</div>
-				<div class="col-lg-6">
-					<div class="picture">
-						<div class="mb-3">
-							<label for="imageUpload" class="form-label">Photo du groupe</label>
-							<input name="file" class="form-control" type="file" id="imageUpload">
-							{% if errors.file_extension %}
-								<div class="text-danger">
-									{{errors.file_extension}}
-								</div>
-							{% endif %}
-							{% if errors.file_size %}
-								<div class="text-danger">
-									{{errors.file_size}}
-								</div>
-							{% endif %}
-						</div>
+
+				<label class="form-label">Description</label>
+				<textarea name="description" id="description" class="form-control"></textarea>
+			</div>
+			<div class="col-lg-6">
+				<div class="picture">
+					<div class="mb-3">
+						<label for="imageUpload" class="form-label">Photo du groupe</label>
+						<input name="file" class="form-control" type="file" id="imageUpload">
+						{% if errors.file_extension %}
+							<div class="text-danger">
+								{{errors.file_extension}}
+							</div>
+						{% endif %}
+						{% if errors.file_size %}
+							<div class="text-danger">
+								{{errors.file_size}}
+							</div>
+						{% endif %}
 					</div>
 				</div>
 			</div>
@@ -109,6 +109,6 @@
 					<button name="annonce" class="adminBtn  btn w-100" type="submit">Ajouter une annonce</button>
 				</div>
 			</div>
-		</form>
-	</div>
-{% endblock %}
+		</div>
+	</form>
+</div>{% endblock %}

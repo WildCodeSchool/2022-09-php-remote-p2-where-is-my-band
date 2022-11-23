@@ -51,7 +51,9 @@
         display: inline-flex;
         margin-top: 0.1rem;
     }
-
+    .collapse {
+        justify-content: initial;
+    }
     .navbar {
         padding: 0%;
     }
