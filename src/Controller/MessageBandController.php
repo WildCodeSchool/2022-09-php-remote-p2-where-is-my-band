@@ -20,7 +20,7 @@ class MessageBandController extends AbstractController
     /**
      * Add a new message
      */
-    public function insertMessageBand(): string
+    public function insertMessageBand(int $id): string
     {
         /**
          * Initialisation du tableau d'erreur
@@ -45,15 +45,15 @@ class MessageBandController extends AbstractController
                 header('Location: /validationband');
             }
         }
-
+        $bandManager = new BandManager();
+        $band = $bandManager->selectOneById($id);
         $localisationManager = new LocalisationManager();
         $instrumentManager = new InstrumentManager();
-        $bandManager = new BandManager();
         return $this->twig->render('Band/contactband.html.twig', [
+            'band' => $band,
             'localisations' => $localisationManager->selectAll(),
             'instruments' => $instrumentManager->selectAll(),
-            'errors' => $errors,
-            'bands' => $bandManager->selectAll()
+            'errors' => $errors
         ]);
     }
 
