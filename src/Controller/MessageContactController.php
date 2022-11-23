@@ -57,8 +57,14 @@ class MessageContactController extends AbstractController
         if (empty($messageContact['email'])) {
             $errors['email'] = 'Le champ email est obligatoire.';
         }
+        if (empty(filter_var($messageContact['email'], FILTER_VALIDATE_EMAIL))) {
+            $errors['emailFormat'] = 'Le champ email est au mauvais format.';
+        }
         if (empty($messageContact['phone'])) {
             $errors['phone'] = 'Le champ téléphone est obligatoire.';
+        }
+        if (empty(preg_match("/^[0-9 ]*$/", $messageContact['phone']))) {
+            $errors['phoneFormat'] = 'Le champ téléphone est au mauvais format.';
         }
         if (empty($messageContact['message'])) {
             $errors['message'] = 'Le champ message est obligatoire.';

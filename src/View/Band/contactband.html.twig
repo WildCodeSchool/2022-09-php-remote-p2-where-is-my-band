@@ -2,7 +2,9 @@
 
 {% block content %}
 
-	<h2>Contactez votre groupe !</h2>
+	<h2>Contactez
+		{{ search.band }}
+		votre groupe !</h2>
 
 	<section class="container align-content-center">
 
@@ -17,6 +19,7 @@
 		<img src="./assets/images/silhouettes.png" class="d-block mx-auto mb-2 w-25 " alt="silouhettes">
 		<form class="container text-center shadow p-3 mb-5 col-lg-6 bg-body rounded" method="POST">
 			<div class="row g-3">
+					<input class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="band" name="band" arial-label="band" value="{{ band.id }}" disabled/>
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6 ">
 					<label for="lastname" class="form-label">Nom</label>
 					<input type="text" class="form-control shadow-sm p-3 mb-2 bg-body rounded" id="lastname" name="lastname" placeholder=" Cobain" arial-label="nom" required>
@@ -118,6 +121,9 @@
 					{% if errors.email %}
 						<div class="text-danger small">{{errors.email}}</div>
 					{% endif %}
+					{% if errors.emailFormat %}
+						<div class="text-danger small">{{errors.emailFormat}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-12 col-xs-12 col-md-12 col-lg-6">
@@ -126,7 +132,9 @@
 					{% if errors.phone %}
 						<div class="text-danger small">{{errors.phone}}</div>
 					{% endif %}
-
+					{% if errors.phoneFormat %}
+						<div class="text-danger small">{{errors.phoneFormat}}</div>
+					{% endif %}
 				</div>
 
 				<div class="mb-3 col-lg-12">
