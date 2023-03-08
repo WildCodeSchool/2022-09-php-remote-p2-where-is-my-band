@@ -1,0 +1,70 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+    container_name: ${PROJECT_NAME:-project}-web
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - database
+    restart: always
+    networks:
+      - proxy
+      - default
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      # Run "composer require symfony/orm-pack" to install and configure Doctrine ORM
+    #      DATABASE_URL: mysql://app:!ChangeMe!@database:3306/app?serverVersion=8&charset=utf8mb4
+    #      APP_ENV: dev
+    #      APP_SECRET: 6ac5f54399d6b50ce81601093922741a
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.entrypoints=websecure"
+      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.rule=Host(`${PROJECT_NAME:-project}.${DOMAIN:-localhost}`)"
+  
+  ###> doctrine/doctrine-bundle ###
+  database:
+    build: ./docker/mysql
+    container_name: ${PROJECT_NAME:-project}-db
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-app}
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: ${DB_USER:-app}
+      # You can use whatever password you like
+      MYSQL_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
+    #    ports:
+    #      # <Port exposed> : < MySQL Port running inside container>
+    #      - '3306:3306'
+    networks:
+      - default
+    expose:
+      # Opens port 3306 on the container
+      - 3306
+      # Where our data will be persisted
+      #    volumes:
+      #      - my-db:/var/lib/mysql
+      #    volumes:
+      #      - database_data:/etc/mysql/conf.d
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+  ###< doctrine/doctrine-bundle ###
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  ###> doctrine/doctrine-bundle ###
+  db-data:
+    name: ${PROJECT_NAME:-project}-db
+###< doctrine/doctrine-bundle ###
