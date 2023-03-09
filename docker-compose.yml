@@ -1,6 +1,29 @@
 version: '3.4'
 
 services:
+  database:
+    build: ./docker/mysql
+    container_name: ${PROJECT_NAME:-project}-db
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-app}
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: ${DB_USER:-app}
+      # You can use whatever password you like
+      MYSQL_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
+    #    ports:
+    #      # <Port exposed> : < MySQL Port running inside container>
+    #      - '3306:3306'
+    networks:
+      - default
+    expose:
+      # Opens port 3306 on the container
+      - 3306
+      - 
   web:
     build: .
     container_name: ${PROJECT_NAME:-project}-web
@@ -24,31 +47,6 @@ services:
       - "traefik.http.routers.${PROJECT_NAME:-project}-secure.entrypoints=websecure"
       - "traefik.http.routers.${PROJECT_NAME:-project}-secure.rule=Host(`${PROJECT_NAME:-project}.${DOMAIN:-localhost}`)"
   
-  ###> doctrine/doctrine-bundle ###
-  database:
-    build: ./docker/mysql
-    container_name: ${PROJECT_NAME:-project}-db
-    restart: always
-    volumes:
-      - db-data:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: ${DB_NAME:-app}
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: ${DB_USER:-app}
-      # You can use whatever password you like
-      MYSQL_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
-    #    ports:
-    #      # <Port exposed> : < MySQL Port running inside container>
-    #      - '3306:3306'
-    networks:
-      - default
-    expose:
-      # Opens port 3306 on the container
-      - 3306
-
-
 networks:
   proxy:
     external: true
