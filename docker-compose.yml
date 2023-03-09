@@ -23,7 +23,7 @@ services:
     expose:
       # Opens port 3306 on the container
       - 3306
-      - 
+ 
   web:
     build: .
     container_name: ${PROJECT_NAME:-project}-web
