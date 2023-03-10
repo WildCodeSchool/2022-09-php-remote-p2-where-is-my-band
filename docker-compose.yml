@@ -31,7 +31,7 @@ services:
       - ./:/var/www
     depends_on:
       database:
-        condition: service_started
+        condition: service_completed_successfully
     restart: always
     networks:
       - proxy
