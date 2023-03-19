@@ -1,56 +1,25 @@
 version: '3.4'
 
 services:
-  database:
-    build: ./docker/mysql
-    container_name: ${PROJECT_NAME:-project}-db
-    restart: always
-    volumes:
-      - db-data:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: ${DB_NAME:-app}
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: ${DB_USER:-app}
-      # You can use whatever password you like
-      MYSQL_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-!ChangeMe!}
-    #    ports:
-    #      # <Port exposed> : < MySQL Port running inside container>
-    #      - '3306:3306'
-    networks:
-      - default
-    expose:
-      # Opens port 3306 on the container
-      - 3306
- 
   web:
     build: .
     container_name: ${PROJECT_NAME:-project}-web
     volumes:
       - ./:/var/www
-    depends_on:
-      database:
-        condition: service_completed_successfully
     restart: always
     networks:
       - proxy
-      - default
     environment:
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
+      DB_USER: ${USER_NAME}
+      DB_PASSWORD: ${USER_PASSWORD}
+      DB_HOST: ${DATABASE_SUBDOMAIN_NAME}-db
       DB_NAME: ${DB_NAME}
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.${PROJECT_NAME:-project}-secure.entrypoints=websecure"
-      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.rule=Host(`${PROJECT_NAME:-project}.${DOMAIN:-localhost}`)"
-  
+      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.rule=Host(`${PROJECT_NAME:-project}.${HOST:-localhost}`)"
+
 networks:
   proxy:
     external: true
-
-volumes:
-  db-data:
-    name: ${PROJECT_NAME:-project}-db
